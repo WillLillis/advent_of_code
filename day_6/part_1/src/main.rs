@@ -13,13 +13,11 @@ fn main() {
         sig.entry(x).and_modify(|count| *count += 1).or_insert(1);
     }
 
-
-
     // now we go with the sliding window...
     for (idx, x) in input.chars().enumerate().skip(4) {
         // check if we have 4 unique chars
         if sig.len() == 4 {
-            println!("{:?}", sig);
+            //println!("{:?}", sig);
             start_idx = idx;
             break;
         }
