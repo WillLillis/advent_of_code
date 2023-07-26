@@ -1,0 +1,2397 @@
+$ cd /
+	cd-ing to /
+
+
+CD FAILED!
+
+$ ls
+dir brdsppd
+	Attempting to add dir: brdsppd...dir created
+dir dnjqmzgg
+	Attempting to add dir: dnjqmzgg...dir created
+126880 fmftdzrp.fwt
+	Attempting to add file: fmftdzrp.fwt, size: 126880...created
+173625 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 173625...created
+dir lbbcfjl
+	Attempting to add dir: lbbcfjl...dir created
+dir mzdqcb
+	Attempting to add dir: mzdqcb...dir created
+dir npppw
+	Attempting to add dir: npppw...dir created
+dir plmb
+	Attempting to add dir: plmb...dir created
+6337 rfgtcj.tdn
+	Attempting to add file: rfgtcj.tdn, size: 6337...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+230140 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 230140...created
+$ cd brdsppd
+	cd-ing to brdsppd
+	curr_dir set to: brdsppd
+$ ls
+dir gjc
+	Attempting to add dir: gjc...dir created
+dir lcz
+	Attempting to add dir: lcz...dir created
+218543 ndqmcv
+	Attempting to add file: ndqmcv, size: 218543...created
+dir qnj
+	Attempting to add dir: qnj...dir created
+dir rrdd
+	Attempting to add dir: rrdd...dir created
+dir zppsglq
+	Attempting to add dir: zppsglq...dir created
+$ cd gjc
+	cd-ing to gjc
+	curr_dir set to: gjc
+$ ls
+dir bvctghh
+	Attempting to add dir: bvctghh...dir created
+262132 cbczvmdf
+	Attempting to add file: cbczvmdf, size: 262132...created
+111855 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 111855...created
+22416 fnrwscz.vwb
+	Attempting to add file: fnrwscz.vwb, size: 22416...created
+dir gwd
+	Attempting to add dir: gwd...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd bvctghh
+	cd-ing to bvctghh
+	curr_dir set to: bvctghh
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+182522 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 182522...created
+dir hts
+	Attempting to add dir: hts...dir created
+229288 jtpdh
+	Attempting to add file: jtpdh, size: 229288...created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+284594 szfw
+	Attempting to add file: szfw, size: 284594...created
+89639 tgdsjl
+	Attempting to add file: tgdsjl, size: 89639...created
+$ cd hts
+	cd-ing to hts
+	curr_dir set to: hts
+$ ls
+11158 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 11158...created
+52582 tchv
+	Attempting to add file: tchv, size: 52582...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+58586 jtzmjgw.bql
+	Attempting to add file: jtzmjgw.bql, size: 58586...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bvctghh
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+199598 rlhz.pbs
+	Attempting to add file: rlhz.pbs, size: 199598...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bvctghh
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+119666 fmzfs.glg
+	Attempting to add file: fmzfs.glg, size: 119666...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bvctghh
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gjc
+$ cd gwd
+	cd-ing to gwd
+	curr_dir set to: gwd
+$ ls
+dir bcfqd
+	Attempting to add dir: bcfqd...dir created
+1631 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 1631...created
+$ cd bcfqd
+	cd-ing to bcfqd
+	curr_dir set to: bcfqd
+$ ls
+197168 cqvwnslp.ltw
+	Attempting to add file: cqvwnslp.ltw, size: 197168...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gwd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gjc
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir jwznh
+	Attempting to add dir: jwznh...dir created
+$ cd jwznh
+	cd-ing to jwznh
+	curr_dir set to: jwznh
+$ ls
+dir lpm
+	Attempting to add dir: lpm...dir created
+dir ncs
+	Attempting to add dir: ncs...dir created
+dir vqprn
+	Attempting to add dir: vqprn...dir created
+$ cd lpm
+	cd-ing to lpm
+	curr_dir set to: lpm
+$ ls
+15172 bnw.rqm
+	Attempting to add file: bnw.rqm, size: 15172...created
+215818 flpbspn.stt
+	Attempting to add file: flpbspn.stt, size: 215818...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jwznh
+$ cd ncs
+	cd-ing to ncs
+	curr_dir set to: ncs
+$ ls
+dir rzdbw
+	Attempting to add dir: rzdbw...dir created
+$ cd rzdbw
+	cd-ing to rzdbw
+	curr_dir set to: rzdbw
+$ ls
+15150 cvjldjt.gdc
+	Attempting to add file: cvjldjt.gdc, size: 15150...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ncs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jwznh
+$ cd vqprn
+	cd-ing to vqprn
+	curr_dir set to: vqprn
+$ ls
+23882 njjjh
+	Attempting to add file: njjjh, size: 23882...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jwznh
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gjc
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: brdsppd
+$ cd lcz
+	cd-ing to lcz
+	curr_dir set to: lcz
+$ ls
+37587 gwcvttb.dhc
+	Attempting to add file: gwcvttb.dhc, size: 37587...created
+195583 lsprzlbf.vng
+	Attempting to add file: lsprzlbf.vng, size: 195583...created
+152648 tchv
+	Attempting to add file: tchv, size: 152648...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: brdsppd
+$ cd qnj
+	cd-ing to qnj
+	curr_dir set to: qnj
+$ ls
+dir bpvl
+	Attempting to add dir: bpvl...dir created
+275640 cfvznj.bqc
+	Attempting to add file: cfvznj.bqc, size: 275640...created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+213007 nwbt.mct
+	Attempting to add file: nwbt.mct, size: 213007...created
+135231 twpf.pft
+	Attempting to add file: twpf.pft, size: 135231...created
+165501 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 165501...created
+88097 vmvs.hnr
+	Attempting to add file: vmvs.hnr, size: 88097...created
+dir znbdpp
+	Attempting to add dir: znbdpp...dir created
+$ cd bpvl
+	cd-ing to bpvl
+	curr_dir set to: bpvl
+$ ls
+dir nmzbpb
+	Attempting to add dir: nmzbpb...dir created
+$ cd nmzbpb
+	cd-ing to nmzbpb
+	curr_dir set to: nmzbpb
+$ ls
+129477 pjlvs.zcp
+	Attempting to add file: pjlvs.zcp, size: 129477...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bpvl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qnj
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir rsbdcwjr
+	Attempting to add dir: rsbdcwjr...dir created
+dir sgh
+	Attempting to add dir: sgh...dir created
+dir wvwmf
+	Attempting to add dir: wvwmf...dir created
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+33186 ftcrfnmd
+	Attempting to add file: ftcrfnmd, size: 33186...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd rsbdcwjr
+	cd-ing to rsbdcwjr
+	curr_dir set to: rsbdcwjr
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+288445 pjmqm
+	Attempting to add file: pjmqm, size: 288445...created
+111585 szfw.drf
+	Attempting to add file: szfw.drf, size: 111585...created
+dir vnftvqf
+	Attempting to add dir: vnftvqf...dir created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+dir ctlwjnjz
+	Attempting to add dir: ctlwjnjz...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd ctlwjnjz
+	cd-ing to ctlwjnjz
+	curr_dir set to: ctlwjnjz
+$ ls
+72087 zmhnsmmf
+	Attempting to add file: zmhnsmmf, size: 72087...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+151358 sqs
+	Attempting to add file: sqs, size: 151358...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+112471 mftdzhwj.zvt
+	Attempting to add file: mftdzhwj.zvt, size: 112471...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd vnftvqf
+	cd-ing to vnftvqf
+	curr_dir set to: vnftvqf
+$ ls
+120421 lsprzlbf.tqc
+	Attempting to add file: lsprzlbf.tqc, size: 120421...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: rsbdcwjr
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd sgh
+	cd-ing to sgh
+	curr_dir set to: sgh
+$ ls
+228239 szfw.dzv
+	Attempting to add file: szfw.dzv, size: 228239...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd wvwmf
+	cd-ing to wvwmf
+	curr_dir set to: wvwmf
+$ ls
+dir bcjfz
+	Attempting to add dir: bcjfz...dir created
+$ cd bcjfz
+	cd-ing to bcjfz
+	curr_dir set to: bcjfz
+$ ls
+26284 bzhqwdjq.nzn
+	Attempting to add file: bzhqwdjq.nzn, size: 26284...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wvwmf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qnj
+$ cd znbdpp
+	cd-ing to znbdpp
+	curr_dir set to: znbdpp
+$ ls
+dir szfw
+	Attempting to add dir: szfw...dir created
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+dir nthzqpws
+	Attempting to add dir: nthzqpws...dir created
+dir snfmt
+	Attempting to add dir: snfmt...dir created
+$ cd nthzqpws
+	cd-ing to nthzqpws
+	curr_dir set to: nthzqpws
+$ ls
+96382 twhdbvtw.lbj
+	Attempting to add file: twhdbvtw.lbj, size: 96382...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd snfmt
+	cd-ing to snfmt
+	curr_dir set to: snfmt
+$ ls
+133360 bjmgtpgh
+	Attempting to add file: bjmgtpgh, size: 133360...created
+134215 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 134215...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: znbdpp
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qnj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: brdsppd
+$ cd rrdd
+	cd-ing to rrdd
+	curr_dir set to: rrdd
+$ ls
+185903 cpgpgntt.tfn
+	Attempting to add file: cpgpgntt.tfn, size: 185903...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: brdsppd
+$ cd zppsglq
+	cd-ing to zppsglq
+	curr_dir set to: zppsglq
+$ ls
+41689 jvcgnbs.hrt
+	Attempting to add file: jvcgnbs.hrt, size: 41689...created
+169754 wgnpq
+	Attempting to add file: wgnpq, size: 169754...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: brdsppd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd dnjqmzgg
+	cd-ing to dnjqmzgg
+	curr_dir set to: dnjqmzgg
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir nmvj
+	Attempting to add dir: nmvj...dir created
+dir sfpg
+	Attempting to add dir: sfpg...dir created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir lbw
+	Attempting to add dir: lbw...dir created
+141416 sqs
+	Attempting to add file: sqs, size: 141416...created
+$ cd lbw
+	cd-ing to lbw
+	curr_dir set to: lbw
+$ ls
+48758 cjv
+	Attempting to add file: cjv, size: 48758...created
+235522 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 235522...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dnjqmzgg
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+36709 bcmtmwcz
+	Attempting to add file: bcmtmwcz, size: 36709...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dnjqmzgg
+$ cd nmvj
+	cd-ing to nmvj
+	curr_dir set to: nmvj
+$ ls
+dir dqpw
+	Attempting to add dir: dqpw...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd dqpw
+	cd-ing to dqpw
+	curr_dir set to: dqpw
+$ ls
+10608 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 10608...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: nmvj
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+261140 qfzb
+	Attempting to add file: qfzb, size: 261140...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: nmvj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dnjqmzgg
+$ cd sfpg
+	cd-ing to sfpg
+	curr_dir set to: sfpg
+$ ls
+8543 szfw
+	Attempting to add file: szfw, size: 8543...created
+69248 tjslbpb
+	Attempting to add file: tjslbpb, size: 69248...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dnjqmzgg
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd lbbcfjl
+	cd-ing to lbbcfjl
+	curr_dir set to: lbbcfjl
+$ ls
+dir csnjp
+	Attempting to add dir: csnjp...dir created
+dir drwpfn
+	Attempting to add dir: drwpfn...dir created
+301956 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 301956...created
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir pdzlnm
+	Attempting to add dir: pdzlnm...dir created
+161886 tchv
+	Attempting to add file: tchv, size: 161886...created
+153858 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 153858...created
+87849 wghtg
+	Attempting to add file: wghtg, size: 87849...created
+dir zhgchnld
+	Attempting to add dir: zhgchnld...dir created
+$ cd csnjp
+	cd-ing to csnjp
+	curr_dir set to: csnjp
+$ ls
+dir ffgfmcm
+	Attempting to add dir: ffgfmcm...dir created
+dir gtd
+	Attempting to add dir: gtd...dir created
+dir lbjvqv
+	Attempting to add dir: lbjvqv...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+11312 sqs
+	Attempting to add file: sqs, size: 11312...created
+$ cd ffgfmcm
+	cd-ing to ffgfmcm
+	curr_dir set to: ffgfmcm
+$ ls
+dir bcnvw
+	Attempting to add dir: bcnvw...dir created
+dir lcf
+	Attempting to add dir: lcf...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd bcnvw
+	cd-ing to bcnvw
+	curr_dir set to: bcnvw
+$ ls
+111692 ftcvs.tcz
+	Attempting to add file: ftcvs.tcz, size: 111692...created
+173665 jpfh.hrs
+	Attempting to add file: jpfh.hrs, size: 173665...created
+120561 lwfgnzz.zvd
+	Attempting to add file: lwfgnzz.zvd, size: 120561...created
+dir ngtbzz
+	Attempting to add dir: ngtbzz...dir created
+29479 tchv
+	Attempting to add file: tchv, size: 29479...created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd ngtbzz
+	cd-ing to ngtbzz
+	curr_dir set to: ngtbzz
+$ ls
+dir czrqmh
+	Attempting to add dir: czrqmh...dir created
+dir jrhpnpw
+	Attempting to add dir: jrhpnpw...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd czrqmh
+	cd-ing to czrqmh
+	curr_dir set to: czrqmh
+$ ls
+225055 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 225055...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ngtbzz
+$ cd jrhpnpw
+	cd-ing to jrhpnpw
+	curr_dir set to: jrhpnpw
+$ ls
+206497 tjslbpb.zbv
+	Attempting to add file: tjslbpb.zbv, size: 206497...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ngtbzz
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+66627 szfw.wtd
+	Attempting to add file: szfw.wtd, size: 66627...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ngtbzz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bcnvw
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir cgzlp
+	Attempting to add dir: cgzlp...dir created
+116060 lsprzlbf
+	Attempting to add file: lsprzlbf, size: 116060...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+128885 zht.ptf
+	Attempting to add file: zht.ptf, size: 128885...created
+$ cd cgzlp
+	cd-ing to cgzlp
+	curr_dir set to: cgzlp
+$ ls
+18201 sqs
+	Attempting to add file: sqs, size: 18201...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+104128 tchv
+	Attempting to add file: tchv, size: 104128...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bcnvw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ffgfmcm
+$ cd lcf
+	cd-ing to lcf
+	curr_dir set to: lcf
+$ ls
+137662 lwfgnzz
+	Attempting to add file: lwfgnzz, size: 137662...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ffgfmcm
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+151745 fmcgs.tvh
+	Attempting to add file: fmcgs.tvh, size: 151745...created
+37707 gszw.jlm
+	Attempting to add file: gszw.jlm, size: 37707...created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+178133 rjw.wrq
+	Attempting to add file: rjw.wrq, size: 178133...created
+dir szw
+	Attempting to add dir: szw...dir created
+267875 tchv
+	Attempting to add file: tchv, size: 267875...created
+198852 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 198852...created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+54734 lsprzlbf.hcq
+	Attempting to add file: lsprzlbf.hcq, size: 54734...created
+81537 lwfgnzz
+	Attempting to add file: lwfgnzz, size: 81537...created
+120990 qppfdrf
+	Attempting to add file: qppfdrf, size: 120990...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd szw
+	cd-ing to szw
+	curr_dir set to: szw
+$ ls
+dir jtvschrd
+	Attempting to add dir: jtvschrd...dir created
+dir zcnpls
+	Attempting to add dir: zcnpls...dir created
+$ cd jtvschrd
+	cd-ing to jtvschrd
+	curr_dir set to: jtvschrd
+$ ls
+dir gtz
+	Attempting to add dir: gtz...dir created
+$ cd gtz
+	cd-ing to gtz
+	curr_dir set to: gtz
+$ ls
+dir rdzzlm
+	Attempting to add dir: rdzzlm...dir created
+$ cd rdzzlm
+	cd-ing to rdzzlm
+	curr_dir set to: rdzzlm
+$ ls
+55063 tchv
+	Attempting to add file: tchv, size: 55063...created
+8813 zfwvvpvz.zzb
+	Attempting to add file: zfwvvpvz.zzb, size: 8813...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gtz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jtvschrd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szw
+$ cd zcnpls
+	cd-ing to zcnpls
+	curr_dir set to: zcnpls
+$ ls
+282808 dpmd
+	Attempting to add file: dpmd, size: 282808...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ffgfmcm
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: csnjp
+$ cd gtd
+	cd-ing to gtd
+	curr_dir set to: gtd
+$ ls
+148653 cmchsg.zdr
+	Attempting to add file: cmchsg.zdr, size: 148653...created
+66537 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 66537...created
+125493 mdtmqbml.gnt
+	Attempting to add file: mdtmqbml.gnt, size: 125493...created
+dir rwjdjqcs
+	Attempting to add dir: rwjdjqcs...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd rwjdjqcs
+	cd-ing to rwjdjqcs
+	curr_dir set to: rwjdjqcs
+$ ls
+77026 zpt.gfp
+	Attempting to add file: zpt.gfp, size: 77026...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gtd
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir dfl
+	Attempting to add dir: dfl...dir created
+$ cd dfl
+	cd-ing to dfl
+	curr_dir set to: dfl
+$ ls
+203731 qpsmsjgh.gvs
+	Attempting to add file: qpsmsjgh.gvs, size: 203731...created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+84386 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 84386...created
+dir zgh
+	Attempting to add dir: zgh...dir created
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+140021 qnp
+	Attempting to add file: qnp, size: 140021...created
+312305 svh.vqt
+	Attempting to add file: svh.vqt, size: 312305...created
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+49701 lgffdn.gmr
+	Attempting to add file: lgffdn.gmr, size: 49701...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dfl
+$ cd zgh
+	cd-ing to zgh
+	curr_dir set to: zgh
+$ ls
+138627 tchv
+	Attempting to add file: tchv, size: 138627...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dfl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gtd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: csnjp
+$ cd lbjvqv
+	cd-ing to lbjvqv
+	curr_dir set to: lbjvqv
+$ ls
+dir bnl
+	Attempting to add dir: bnl...dir created
+$ cd bnl
+	cd-ing to bnl
+	curr_dir set to: bnl
+$ ls
+dir gbv
+	Attempting to add dir: gbv...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+$ cd gbv
+	cd-ing to gbv
+	curr_dir set to: gbv
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+36406 lsprzlbf.cfd
+	Attempting to add file: lsprzlbf.cfd, size: 36406...created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+168615 hlhp.rvp
+	Attempting to add file: hlhp.rvp, size: 168615...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gbv
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bnl
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+149511 cdpwjbpd
+	Attempting to add file: cdpwjbpd, size: 149511...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: bnl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbjvqv
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: csnjp
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+232898 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 232898...created
+181665 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 181665...created
+62529 qfmhhvvq.prh
+	Attempting to add file: qfmhhvvq.prh, size: 62529...created
+57822 sqs
+	Attempting to add file: sqs, size: 57822...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: csnjp
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd drwpfn
+	cd-ing to drwpfn
+	curr_dir set to: drwpfn
+$ ls
+dir fvgw
+	Attempting to add dir: fvgw...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+104745 nqvlqd.mdb
+	Attempting to add file: nqvlqd.mdb, size: 104745...created
+203189 qqpmz
+	Attempting to add file: qqpmz, size: 203189...created
+159549 tchv
+	Attempting to add file: tchv, size: 159549...created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+dir wnrns
+	Attempting to add dir: wnrns...dir created
+$ cd fvgw
+	cd-ing to fvgw
+	curr_dir set to: fvgw
+$ ls
+dir tlzmplfl
+	Attempting to add dir: tlzmplfl...dir created
+$ cd tlzmplfl
+	cd-ing to tlzmplfl
+	curr_dir set to: tlzmplfl
+$ ls
+29740 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 29740...created
+30062 wgrm.dst
+	Attempting to add file: wgrm.dst, size: 30062...created
+181738 zqr
+	Attempting to add file: zqr, size: 181738...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: fvgw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: drwpfn
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir lcqhctjl
+	Attempting to add dir: lcqhctjl...dir created
+dir ldr
+	Attempting to add dir: ldr...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd lcqhctjl
+	cd-ing to lcqhctjl
+	curr_dir set to: lcqhctjl
+$ ls
+209114 bcfr.gpf
+	Attempting to add file: bcfr.gpf, size: 209114...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ldr
+	cd-ing to ldr
+	curr_dir set to: ldr
+$ ls
+148649 fzh.pqm
+	Attempting to add file: fzh.pqm, size: 148649...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+241013 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 241013...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: drwpfn
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+288335 cdctnn
+	Attempting to add file: cdctnn, size: 288335...created
+67277 tchv
+	Attempting to add file: tchv, size: 67277...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: drwpfn
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir pblzrspg
+	Attempting to add dir: pblzrspg...dir created
+dir qqgddb
+	Attempting to add dir: qqgddb...dir created
+86103 sqs
+	Attempting to add file: sqs, size: 86103...created
+183539 tjslbpb.wrs
+	Attempting to add file: tjslbpb.wrs, size: 183539...created
+$ cd pblzrspg
+	cd-ing to pblzrspg
+	curr_dir set to: pblzrspg
+$ ls
+dir pgl
+	Attempting to add dir: pgl...dir created
+$ cd pgl
+	cd-ing to pgl
+	curr_dir set to: pgl
+$ ls
+305421 lwfgnzz.jdz
+	Attempting to add file: lwfgnzz.jdz, size: 305421...created
+114244 tjslbpb
+	Attempting to add file: tjslbpb, size: 114244...created
+dir vzff
+	Attempting to add dir: vzff...dir created
+$ cd vzff
+	cd-ing to vzff
+	curr_dir set to: vzff
+$ ls
+80591 rlww.htq
+	Attempting to add file: rlww.htq, size: 80591...created
+86968 sqs
+	Attempting to add file: sqs, size: 86968...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pgl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pblzrspg
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd qqgddb
+	cd-ing to qqgddb
+	curr_dir set to: qqgddb
+$ ls
+dir szfw
+	Attempting to add dir: szfw...dir created
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+dir jtw
+	Attempting to add dir: jtw...dir created
+$ cd jtw
+	cd-ing to jtw
+	curr_dir set to: jtw
+$ ls
+263 szfw.lzp
+	Attempting to add file: szfw.lzp, size: 263...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qqgddb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: drwpfn
+$ cd wnrns
+	cd-ing to wnrns
+	curr_dir set to: wnrns
+$ ls
+203725 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 203725...created
+77752 qrg.fnt
+	Attempting to add file: qrg.fnt, size: 77752...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: drwpfn
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+296356 lwfgnzz.svf
+	Attempting to add file: lwfgnzz.svf, size: 296356...created
+294928 ptvdsngf
+	Attempting to add file: ptvdsngf, size: 294928...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+105095 tchv
+	Attempting to add file: tchv, size: 105095...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+53558 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 53558...created
+189180 szfw
+	Attempting to add file: szfw, size: 189180...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd pdzlnm
+	cd-ing to pdzlnm
+	curr_dir set to: pdzlnm
+$ ls
+76426 jwttcp.rjj
+	Attempting to add file: jwttcp.rjj, size: 76426...created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir qldhzf
+	Attempting to add dir: qldhzf...dir created
+dir rtdsjf
+	Attempting to add dir: rtdsjf...dir created
+dir sfdtljj
+	Attempting to add dir: sfdtljj...dir created
+69033 slhl.jst
+	Attempting to add file: slhl.jst, size: 69033...created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+71362 vgdr
+	Attempting to add file: vgdr, size: 71362...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pdzlnm
+$ cd qldhzf
+	cd-ing to qldhzf
+	curr_dir set to: qldhzf
+$ ls
+303106 lsprzlbf.rbq
+	Attempting to add file: lsprzlbf.rbq, size: 303106...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pdzlnm
+$ cd rtdsjf
+	cd-ing to rtdsjf
+	curr_dir set to: rtdsjf
+$ ls
+45781 pzbgwrdm.lwt
+	Attempting to add file: pzbgwrdm.lwt, size: 45781...created
+dir rzc
+	Attempting to add dir: rzc...dir created
+$ cd rzc
+	cd-ing to rzc
+	curr_dir set to: rzc
+$ ls
+297081 qqvlp
+	Attempting to add file: qqvlp, size: 297081...created
+86015 zthlr
+	Attempting to add file: zthlr, size: 86015...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: rtdsjf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pdzlnm
+$ cd sfdtljj
+	cd-ing to sfdtljj
+	curr_dir set to: sfdtljj
+$ ls
+254377 ftw.fwg
+	Attempting to add file: ftw.fwg, size: 254377...created
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+153393 lwfgnzz.dws
+	Attempting to add file: lwfgnzz.dws, size: 153393...created
+dir pnphc
+	Attempting to add dir: pnphc...dir created
+220821 wslttcn
+	Attempting to add file: wslttcn, size: 220821...created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+92642 bzpvvlsn.gvt
+	Attempting to add file: bzpvvlsn.gvt, size: 92642...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: sfdtljj
+$ cd pnphc
+	cd-ing to pnphc
+	curr_dir set to: pnphc
+$ ls
+288388 lwfgnzz
+	Attempting to add file: lwfgnzz, size: 288388...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: sfdtljj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pdzlnm
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd zhgchnld
+	cd-ing to zhgchnld
+	curr_dir set to: zhgchnld
+$ ls
+16588 ftgrpj.srl
+	Attempting to add file: ftgrpj.srl, size: 16588...created
+112044 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 112044...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lbbcfjl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd mzdqcb
+	cd-ing to mzdqcb
+	curr_dir set to: mzdqcb
+$ ls
+dir bfphcs
+	Attempting to add dir: bfphcs...dir created
+dir cgjmj
+	Attempting to add dir: cgjmj...dir created
+dir jgcqqsh
+	Attempting to add dir: jgcqqsh...dir created
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+dir lccjbtqs
+	Attempting to add dir: lccjbtqs...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir pprvjm
+	Attempting to add dir: pprvjm...dir created
+dir szfw
+	Attempting to add dir: szfw...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+dir ztc
+	Attempting to add dir: ztc...dir created
+$ cd bfphcs
+	cd-ing to bfphcs
+	curr_dir set to: bfphcs
+$ ls
+124148 wzt.qtr
+	Attempting to add file: wzt.qtr, size: 124148...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd cgjmj
+	cd-ing to cgjmj
+	curr_dir set to: cgjmj
+$ ls
+28095 ddjdbdf
+	Attempting to add file: ddjdbdf, size: 28095...created
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+169536 sqs
+	Attempting to add file: sqs, size: 169536...created
+dir svbsrj
+	Attempting to add dir: svbsrj...dir created
+159511 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 159511...created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+dir crmsnch
+	Attempting to add dir: crmsnch...dir created
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+$ cd crmsnch
+	cd-ing to crmsnch
+	curr_dir set to: crmsnch
+$ ls
+195745 lsprzlbf.prh
+	Attempting to add file: lsprzlbf.prh, size: 195745...created
+271424 tjslbpb
+	Attempting to add file: tjslbpb, size: 271424...created
+227054 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 227054...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+294249 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 294249...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: cgjmj
+$ cd svbsrj
+	cd-ing to svbsrj
+	curr_dir set to: svbsrj
+$ ls
+49038 cspzcpqs
+	Attempting to add file: cspzcpqs, size: 49038...created
+dir czltsqrg
+	Attempting to add dir: czltsqrg...dir created
+98084 ljhljcw
+	Attempting to add file: ljhljcw, size: 98084...created
+dir ntdjg
+	Attempting to add dir: ntdjg...dir created
+202570 szfw.lpj
+	Attempting to add file: szfw.lpj, size: 202570...created
+$ cd czltsqrg
+	cd-ing to czltsqrg
+	curr_dir set to: czltsqrg
+$ ls
+207690 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 207690...created
+208745 lnns.hsv
+	Attempting to add file: lnns.hsv, size: 208745...created
+40703 rgmjszf.vtd
+	Attempting to add file: rgmjszf.vtd, size: 40703...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: svbsrj
+$ cd ntdjg
+	cd-ing to ntdjg
+	curr_dir set to: ntdjg
+$ ls
+dir szfw
+	Attempting to add dir: szfw...dir created
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+284994 qzwptr.ggb
+	Attempting to add file: qzwptr.ggb, size: 284994...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ntdjg
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: svbsrj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: cgjmj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd jgcqqsh
+	cd-ing to jgcqqsh
+	curr_dir set to: jgcqqsh
+$ ls
+2462 djfwggvp
+	Attempting to add file: djfwggvp, size: 2462...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+dir ftjprdj
+	Attempting to add dir: ftjprdj...dir created
+289965 zhlrstpt
+	Attempting to add file: zhlrstpt, size: 289965...created
+$ cd ftjprdj
+	cd-ing to ftjprdj
+	curr_dir set to: ftjprdj
+$ ls
+dir wnmhs
+	Attempting to add dir: wnmhs...dir created
+$ cd wnmhs
+	cd-ing to wnmhs
+	curr_dir set to: wnmhs
+$ ls
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+160761 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 160761...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wnmhs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ftjprdj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd lccjbtqs
+	cd-ing to lccjbtqs
+	curr_dir set to: lccjbtqs
+$ ls
+dir jjrdbgtg
+	Attempting to add dir: jjrdbgtg...dir created
+77186 sqs
+	Attempting to add file: sqs, size: 77186...created
+116398 szfw.qjt
+	Attempting to add file: szfw.qjt, size: 116398...created
+182665 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 182665...created
+248366 vqdjwsh
+	Attempting to add file: vqdjwsh, size: 248366...created
+$ cd jjrdbgtg
+	cd-ing to jjrdbgtg
+	curr_dir set to: jjrdbgtg
+$ ls
+237358 bdvbjs.sjp
+	Attempting to add file: bdvbjs.sjp, size: 237358...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lccjbtqs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+dir ggptdvr
+	Attempting to add dir: ggptdvr...dir created
+dir jnb
+	Attempting to add dir: jnb...dir created
+dir lcpmzpr
+	Attempting to add dir: lcpmzpr...dir created
+222506 lsprzlbf
+	Attempting to add file: lsprzlbf, size: 222506...created
+293605 qbjfqh
+	Attempting to add file: qbjfqh, size: 293605...created
+dir smvwg
+	Attempting to add dir: smvwg...dir created
+291643 tchv
+	Attempting to add file: tchv, size: 291643...created
+247095 vwdstb.pdw
+	Attempting to add file: vwdstb.pdw, size: 247095...created
+dir wghpmnm
+	Attempting to add dir: wghpmnm...dir created
+dir wtrbfrj
+	Attempting to add dir: wtrbfrj...dir created
+$ cd ggptdvr
+	cd-ing to ggptdvr
+	curr_dir set to: ggptdvr
+$ ls
+184198 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 184198...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd jnb
+	cd-ing to jnb
+	curr_dir set to: jnb
+$ ls
+296536 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 296536...created
+91419 jvcgnbs.cvq
+	Attempting to add file: jvcgnbs.cvq, size: 91419...created
+279635 rwt.wth
+	Attempting to add file: rwt.wth, size: 279635...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd lcpmzpr
+	cd-ing to lcpmzpr
+	curr_dir set to: lcpmzpr
+$ ls
+184769 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 184769...created
+dir qwqcbdms
+	Attempting to add dir: qwqcbdms...dir created
+236533 tjslbpb.bnc
+	Attempting to add file: tjslbpb.bnc, size: 236533...created
+162397 vmvctfnw
+	Attempting to add file: vmvctfnw, size: 162397...created
+dir wcc
+	Attempting to add dir: wcc...dir created
+$ cd qwqcbdms
+	cd-ing to qwqcbdms
+	curr_dir set to: qwqcbdms
+$ ls
+232132 jgm.tfm
+	Attempting to add file: jgm.tfm, size: 232132...created
+dir jnfmcnfh
+	Attempting to add dir: jnfmcnfh...dir created
+173727 mwrbndt
+	Attempting to add file: mwrbndt, size: 173727...created
+dir qshphcb
+	Attempting to add dir: qshphcb...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd jnfmcnfh
+	cd-ing to jnfmcnfh
+	curr_dir set to: jnfmcnfh
+$ ls
+dir rngnt
+	Attempting to add dir: rngnt...dir created
+$ cd rngnt
+	cd-ing to rngnt
+	curr_dir set to: rngnt
+$ ls
+236114 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 236114...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jnfmcnfh
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qwqcbdms
+$ cd qshphcb
+	cd-ing to qshphcb
+	curr_dir set to: qshphcb
+$ ls
+78407 lsprzlbf.hpd
+	Attempting to add file: lsprzlbf.hpd, size: 78407...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qwqcbdms
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+30200 brbz
+	Attempting to add file: brbz, size: 30200...created
+171368 jvcgnbs.vwl
+	Attempting to add file: jvcgnbs.vwl, size: 171368...created
+236158 sqs
+	Attempting to add file: sqs, size: 236158...created
+285872 srfwnmb
+	Attempting to add file: srfwnmb, size: 285872...created
+dir znr
+	Attempting to add dir: znr...dir created
+$ cd znr
+	cd-ing to znr
+	curr_dir set to: znr
+$ ls
+108194 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 108194...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: qwqcbdms
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lcpmzpr
+$ cd wcc
+	cd-ing to wcc
+	curr_dir set to: wcc
+$ ls
+167768 jvcgnbs
+	Attempting to add file: jvcgnbs, size: 167768...created
+289640 lgthn.cjn
+	Attempting to add file: lgthn.cjn, size: 289640...created
+28517 lwfgnzz.chf
+	Attempting to add file: lwfgnzz.chf, size: 28517...created
+dir nvgfwn
+	Attempting to add dir: nvgfwn...dir created
+43738 rrg
+	Attempting to add file: rrg, size: 43738...created
+81011 sqs
+	Attempting to add file: sqs, size: 81011...created
+$ cd nvgfwn
+	cd-ing to nvgfwn
+	curr_dir set to: nvgfwn
+$ ls
+270370 hgnv.ssj
+	Attempting to add file: hgnv.ssj, size: 270370...created
+98235 lwfgnzz.nfv
+	Attempting to add file: lwfgnzz.nfv, size: 98235...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wcc
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lcpmzpr
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd smvwg
+	cd-ing to smvwg
+	curr_dir set to: smvwg
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+77510 tchv
+	Attempting to add file: tchv, size: 77510...created
+dir tgrm
+	Attempting to add dir: tgrm...dir created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+287955 bqcnj.zzv
+	Attempting to add file: bqcnj.zzv, size: 287955...created
+119021 bsrtmzd
+	Attempting to add file: bsrtmzd, size: 119021...created
+3391 cnngp.mbf
+	Attempting to add file: cnngp.mbf, size: 3391...created
+68540 qjmb.vjz
+	Attempting to add file: qjmb.vjz, size: 68540...created
+149062 tchv
+	Attempting to add file: tchv, size: 149062...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: smvwg
+$ cd tgrm
+	cd-ing to tgrm
+	curr_dir set to: tgrm
+$ ls
+112315 qzth
+	Attempting to add file: qzth, size: 112315...created
+277566 scqp
+	Attempting to add file: scqp, size: 277566...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: smvwg
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd wghpmnm
+	cd-ing to wghpmnm
+	curr_dir set to: wghpmnm
+$ ls
+dir hpm
+	Attempting to add dir: hpm...dir created
+$ cd hpm
+	cd-ing to hpm
+	curr_dir set to: hpm
+$ ls
+113354 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 113354...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wghpmnm
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd wtrbfrj
+	cd-ing to wtrbfrj
+	curr_dir set to: wtrbfrj
+$ ls
+dir ggrsgzvv
+	Attempting to add dir: ggrsgzvv...dir created
+dir mvzzsl
+	Attempting to add dir: mvzzsl...dir created
+dir szfw
+	Attempting to add dir: szfw...dir created
+dir vsqjb
+	Attempting to add dir: vsqjb...dir created
+$ cd ggrsgzvv
+	cd-ing to ggrsgzvv
+	curr_dir set to: ggrsgzvv
+$ ls
+dir dpv
+	Attempting to add dir: dpv...dir created
+dir gqtsmnr
+	Attempting to add dir: gqtsmnr...dir created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+dir pcjcm
+	Attempting to add dir: pcjcm...dir created
+137203 tchv
+	Attempting to add file: tchv, size: 137203...created
+84711 tns.sdh
+	Attempting to add file: tns.sdh, size: 84711...created
+$ cd dpv
+	cd-ing to dpv
+	curr_dir set to: dpv
+$ ls
+233264 dmd
+	Attempting to add file: dmd, size: 233264...created
+dir fzlchpb
+	Attempting to add dir: fzlchpb...dir created
+293097 gwmspnm.qtp
+	Attempting to add file: gwmspnm.qtp, size: 293097...created
+100283 jbbnssc.nnv
+	Attempting to add file: jbbnssc.nnv, size: 100283...created
+$ cd fzlchpb
+	cd-ing to fzlchpb
+	curr_dir set to: fzlchpb
+$ ls
+150431 pdmzrs.rll
+	Attempting to add file: pdmzrs.rll, size: 150431...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: dpv
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ggrsgzvv
+$ cd gqtsmnr
+	cd-ing to gqtsmnr
+	curr_dir set to: gqtsmnr
+$ ls
+dir jdml
+	Attempting to add dir: jdml...dir created
+dir jfqtjt
+	Attempting to add dir: jfqtjt...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+$ cd jdml
+	cd-ing to jdml
+	curr_dir set to: jdml
+$ ls
+148333 bwm.dnt
+	Attempting to add file: bwm.dnt, size: 148333...created
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+dir cslvm
+	Attempting to add dir: cslvm...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+dir rllt
+	Attempting to add dir: rllt...dir created
+265856 sqs
+	Attempting to add file: sqs, size: 265856...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+56452 tchv
+	Attempting to add file: tchv, size: 56452...created
+$ cd cslvm
+	cd-ing to cslvm
+	curr_dir set to: cslvm
+$ ls
+266380 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 266380...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+dir tzghdrd
+	Attempting to add dir: tzghdrd...dir created
+$ cd tzghdrd
+	cd-ing to tzghdrd
+	curr_dir set to: tzghdrd
+$ ls
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+dir vhv
+	Attempting to add dir: vhv...dir created
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+18188 sqs
+	Attempting to add file: sqs, size: 18188...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tjslbpb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tzghdrd
+$ cd vhv
+	cd-ing to vhv
+	curr_dir set to: vhv
+$ ls
+95547 jhhblnn.vzt
+	Attempting to add file: jhhblnn.vzt, size: 95547...created
+dir srgh
+	Attempting to add dir: srgh...dir created
+$ cd srgh
+	cd-ing to srgh
+	curr_dir set to: srgh
+$ ls
+299624 lsprzlbf.dnr
+	Attempting to add file: lsprzlbf.dnr, size: 299624...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: vhv
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: tzghdrd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd rllt
+	cd-ing to rllt
+	curr_dir set to: rllt
+$ ls
+dir crpcbl
+	Attempting to add dir: crpcbl...dir created
+308185 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 308185...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+$ cd crpcbl
+	cd-ing to crpcbl
+	curr_dir set to: crpcbl
+$ ls
+209445 dfds.mzh
+	Attempting to add file: dfds.mzh, size: 209445...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: rllt
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+159720 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 159720...created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+291090 tzrvpv
+	Attempting to add file: tzrvpv, size: 291090...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: rllt
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+113605 fbrtbfjm
+	Attempting to add file: fbrtbfjm, size: 113605...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jdml
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gqtsmnr
+$ cd jfqtjt
+	cd-ing to jfqtjt
+	curr_dir set to: jfqtjt
+$ ls
+119124 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 119124...created
+251412 jvcgnbs.zfm
+	Attempting to add file: jvcgnbs.zfm, size: 251412...created
+dir rbv
+	Attempting to add dir: rbv...dir created
+dir tjslbpb
+	Attempting to add dir: tjslbpb...dir created
+142371 tjslbpb.czt
+	Attempting to add file: tjslbpb.czt, size: 142371...created
+65455 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 65455...created
+47786 zjmtjsv
+	Attempting to add file: zjmtjsv, size: 47786...created
+$ cd rbv
+	cd-ing to rbv
+	curr_dir set to: rbv
+$ ls
+300632 dzssgm.pqn
+	Attempting to add file: dzssgm.pqn, size: 300632...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jfqtjt
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+221545 pswrb.bsw
+	Attempting to add file: pswrb.bsw, size: 221545...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jfqtjt
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gqtsmnr
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+34086 wshbr.spm
+	Attempting to add file: wshbr.spm, size: 34086...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gqtsmnr
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+118394 djfwjd.fvl
+	Attempting to add file: djfwjd.fvl, size: 118394...created
+65377 qmgcpdr.qjz
+	Attempting to add file: qmgcpdr.qjz, size: 65377...created
+146317 tchv
+	Attempting to add file: tchv, size: 146317...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: gqtsmnr
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ggrsgzvv
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+195086 clqmgmq.gbw
+	Attempting to add file: clqmgmq.gbw, size: 195086...created
+dir cpgjgbdf
+	Attempting to add dir: cpgjgbdf...dir created
+109787 jmwshtg.snl
+	Attempting to add file: jmwshtg.snl, size: 109787...created
+305108 lsprzlbf
+	Attempting to add file: lsprzlbf, size: 305108...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+174614 szfw.qjq
+	Attempting to add file: szfw.qjq, size: 174614...created
+105247 vmcf.rsm
+	Attempting to add file: vmcf.rsm, size: 105247...created
+$ cd cpgjgbdf
+	cd-ing to cpgjgbdf
+	curr_dir set to: cpgjgbdf
+$ ls
+dir vzddwsr
+	Attempting to add dir: vzddwsr...dir created
+$ cd vzddwsr
+	cd-ing to vzddwsr
+	curr_dir set to: vzddwsr
+$ ls
+91787 nwgfs
+	Attempting to add file: nwgfs, size: 91787...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: cpgjgbdf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+193316 tjslbpb
+	Attempting to add file: tjslbpb, size: 193316...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lsprzlbf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ggrsgzvv
+$ cd pcjcm
+	cd-ing to pcjcm
+	curr_dir set to: pcjcm
+$ ls
+dir lsprzlbf
+	Attempting to add dir: lsprzlbf...dir created
+$ cd lsprzlbf
+	cd-ing to lsprzlbf
+	curr_dir set to: lsprzlbf
+$ ls
+210834 hvrpj.cdc
+	Attempting to add file: hvrpj.cdc, size: 210834...created
+29497 wcnf
+	Attempting to add file: wcnf, size: 29497...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pcjcm
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ggrsgzvv
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wtrbfrj
+$ cd mvzzsl
+	cd-ing to mvzzsl
+	curr_dir set to: mvzzsl
+$ ls
+dir rnrtf
+	Attempting to add dir: rnrtf...dir created
+$ cd rnrtf
+	cd-ing to rnrtf
+	curr_dir set to: rnrtf
+$ ls
+221025 btwgwrp.ctj
+	Attempting to add file: btwgwrp.ctj, size: 221025...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mvzzsl
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wtrbfrj
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+dir szfw
+	Attempting to add dir: szfw...dir created
+31365 tjslbpb
+	Attempting to add file: tjslbpb, size: 31365...created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+250409 lwfgnzz.nvf
+	Attempting to add file: lwfgnzz.nvf, size: 250409...created
+66638 tchv
+	Attempting to add file: tchv, size: 66638...created
+dir tlms
+	Attempting to add dir: tlms...dir created
+$ cd tlms
+	cd-ing to tlms
+	curr_dir set to: tlms
+$ ls
+84192 lsprzlbf.pcm
+	Attempting to add file: lsprzlbf.pcm, size: 84192...created
+107549 nwqzqcmw.rls
+	Attempting to add file: nwqzqcmw.rls, size: 107549...created
+97234 svdqvwcz
+	Attempting to add file: svdqvwcz, size: 97234...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+45362 zsflqrtc
+	Attempting to add file: zsflqrtc, size: 45362...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: szfw
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wtrbfrj
+$ cd vsqjb
+	cd-ing to vsqjb
+	curr_dir set to: vsqjb
+$ ls
+dir vvnzdcbb
+	Attempting to add dir: vvnzdcbb...dir created
+$ cd vvnzdcbb
+	cd-ing to vvnzdcbb
+	curr_dir set to: vvnzdcbb
+$ ls
+144027 tchv
+	Attempting to add file: tchv, size: 144027...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: vsqjb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: wtrbfrj
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd pprvjm
+	cd-ing to pprvjm
+	curr_dir set to: pprvjm
+$ ls
+dir hvst
+	Attempting to add dir: hvst...dir created
+137237 lwfgnzz.qfp
+	Attempting to add file: lwfgnzz.qfp, size: 137237...created
+dir szfw
+	Attempting to add dir: szfw...dir created
+$ cd hvst
+	cd-ing to hvst
+	curr_dir set to: hvst
+$ ls
+100531 svmvncf
+	Attempting to add file: svmvncf, size: 100531...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pprvjm
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+233868 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 233868...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: pprvjm
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+14971 tchv
+	Attempting to add file: tchv, size: 14971...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd tjslbpb
+	cd-ing to tjslbpb
+	curr_dir set to: tjslbpb
+$ ls
+283684 lwfgnzz.wzv
+	Attempting to add file: lwfgnzz.wzv, size: 283684...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd ztc
+	cd-ing to ztc
+	curr_dir set to: ztc
+$ ls
+dir bwhfncdm
+	Attempting to add dir: bwhfncdm...dir created
+161420 jvcgnbs
+	Attempting to add file: jvcgnbs, size: 161420...created
+135102 tchv
+	Attempting to add file: tchv, size: 135102...created
+$ cd bwhfncdm
+	cd-ing to bwhfncdm
+	curr_dir set to: bwhfncdm
+$ ls
+108615 lwfgnzz.msn
+	Attempting to add file: lwfgnzz.msn, size: 108615...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: ztc
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: mzdqcb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd npppw
+	cd-ing to npppw
+	curr_dir set to: npppw
+$ ls
+94593 cwdz.tlb
+	Attempting to add file: cwdz.tlb, size: 94593...created
+258598 jsswljc
+	Attempting to add file: jsswljc, size: 258598...created
+245674 nmmfzscz
+	Attempting to add file: nmmfzscz, size: 245674...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd plmb
+	cd-ing to plmb
+	curr_dir set to: plmb
+$ ls
+dir dwnpl
+	Attempting to add dir: dwnpl...dir created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+$ cd dwnpl
+	cd-ing to dwnpl
+	curr_dir set to: dwnpl
+$ ls
+15993 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 15993...created
+264944 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 264944...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: plmb
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+154801 cnbmh.hsh
+	Attempting to add file: cnbmh.hsh, size: 154801...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: plmb
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: /
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+173334 lsprzlbf
+	Attempting to add file: lsprzlbf, size: 173334...created
+dir lwfgnzz
+	Attempting to add dir: lwfgnzz...dir created
+70693 szfw
+	Attempting to add file: szfw, size: 70693...created
+$ cd lwfgnzz
+	cd-ing to lwfgnzz
+	curr_dir set to: lwfgnzz
+$ ls
+dir jgwzcgd
+	Attempting to add dir: jgwzcgd...dir created
+dir qgdcjq
+	Attempting to add dir: qgdcjq...dir created
+dir spwcmrl
+	Attempting to add dir: spwcmrl...dir created
+$ cd jgwzcgd
+	cd-ing to jgwzcgd
+	curr_dir set to: jgwzcgd
+$ ls
+dir jvcgnbs
+	Attempting to add dir: jvcgnbs...dir created
+dir nvtvcf
+	Attempting to add dir: nvtvcf...dir created
+$ cd jvcgnbs
+	cd-ing to jvcgnbs
+	curr_dir set to: jvcgnbs
+$ ls
+131852 cntlhf.mqq
+	Attempting to add file: cntlhf.mqq, size: 131852...created
+217305 dnltsq.fwv
+	Attempting to add file: dnltsq.fwv, size: 217305...created
+174110 jvcgnbs.njb
+	Attempting to add file: jvcgnbs.njb, size: 174110...created
+179602 lwfgnzz.mth
+	Attempting to add file: lwfgnzz.mth, size: 179602...created
+dir pzcssdhv
+	Attempting to add dir: pzcssdhv...dir created
+dir qcmqmnpn
+	Attempting to add dir: qcmqmnpn...dir created
+227361 szfw
+	Attempting to add file: szfw, size: 227361...created
+dir wmhhl
+	Attempting to add dir: wmhhl...dir created
+$ cd pzcssdhv
+	cd-ing to pzcssdhv
+	curr_dir set to: pzcssdhv
+$ ls
+187518 gjfwbwnv
+	Attempting to add file: gjfwbwnv, size: 187518...created
+115671 lsprzlbf
+	Attempting to add file: lsprzlbf, size: 115671...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd qcmqmnpn
+	cd-ing to qcmqmnpn
+	curr_dir set to: qcmqmnpn
+$ ls
+197002 dlns
+	Attempting to add file: dlns, size: 197002...created
+40030 mmpp.ggt
+	Attempting to add file: mmpp.ggt, size: 40030...created
+198158 tchv
+	Attempting to add file: tchv, size: 198158...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd wmhhl
+	cd-ing to wmhhl
+	curr_dir set to: wmhhl
+$ ls
+168011 hhfqgzfj.qvt
+	Attempting to add file: hhfqgzfj.qvt, size: 168011...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jvcgnbs
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jgwzcgd
+$ cd nvtvcf
+	cd-ing to nvtvcf
+	curr_dir set to: nvtvcf
+$ ls
+dir rrzjjjhc
+	Attempting to add dir: rrzjjjhc...dir created
+$ cd rrzjjjhc
+	cd-ing to rrzjjjhc
+	curr_dir set to: rrzjjjhc
+$ ls
+33548 sqs
+	Attempting to add file: sqs, size: 33548...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: nvtvcf
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: jgwzcgd
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd qgdcjq
+	cd-ing to qgdcjq
+	curr_dir set to: qgdcjq
+$ ls
+252274 prshd.qdj
+	Attempting to add file: prshd.qdj, size: 252274...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: lwfgnzz
+$ cd spwcmrl
+	cd-ing to spwcmrl
+	curr_dir set to: spwcmrl
+$ ls
+dir lslmr
+	Attempting to add dir: lslmr...dir created
+dir szfw
+	Attempting to add dir: szfw...dir created
+135076 tchv
+	Attempting to add file: tchv, size: 135076...created
+265608 vmc.cdf
+	Attempting to add file: vmc.cdf, size: 265608...created
+$ cd lslmr
+	cd-ing to lslmr
+	curr_dir set to: lslmr
+$ ls
+172247 rrvwsbl
+	Attempting to add file: rrvwsbl, size: 172247...created
+$ cd ..
+	cd-ing to ..
+	curr_dir set to: spwcmrl
+$ cd szfw
+	cd-ing to szfw
+	curr_dir set to: szfw
+$ ls
+192729 rnq
+	Attempting to add file: rnq, size: 192729...created
+1644735
