@@ -20,18 +20,54 @@ impl XYPos {
     }
 }
 
-// going to assume inclusive for the sake of simplicity
+#[derive(Debug, Clone)]
 struct Ranges {
-    ranges: Vec<(i64, i64)>
+    pub ranges: Vec<std::ops::RangeInclusive<i64>>
 }
 
 impl Ranges {
     fn new(lower: i64, upper: i64) -> Self {
-        Ranges { ranges: vec![(lower, upper)] }
+        if lower > upper {
+            panic!("Invalid range passed to constructor!");
+        }
+        Ranges { ranges: vec![lower..=upper] }
     }
-    fn insert_new_range(lower: i64, upper: i64) {
-        // scan through entries, find point of overlap
-        // tricky...
+    // Modified from https://www.geeksforgeeks.org/merging-intervals/#
+    // The code on the website did not work lol
+    fn insert_new_range(&mut self, lower: i64, upper: i64) {
+        if lower > upper {
+            panic!("Invalid range passed to constructor!");
+        }
+
+        let mut inserted = false;
+        // assume the Vec is sorted, insert new entry sorted according to lower entry
+        for idx in 0..self.ranges.len() {
+            if self.ranges[idx].start() > &lower {
+                self.ranges.insert(idx, lower..=upper);
+                inserted = true;
+                break;
+            }
+        }
+        if !inserted {
+            self.ranges.push(lower..=upper);
+        }
+        
+        let mut idx: usize = 0;
+        let mut i: usize = 1;
+        while i < self.ranges.len() {
+            if (self.ranges[idx].end() >= self.ranges[i].start()) ||
+            (*self.ranges[idx].end() == (self.ranges[i].start() - 1)) {
+                let new_start = self.ranges[idx].start();
+                let new_end = cmp::max(self.ranges[idx].end(), self.ranges[i].end());
+
+                //println!("{new_start}..={new_end}");
+                self.ranges[idx] = *new_start..=*new_end;
+                self.ranges.remove(i);
+            } else {
+                idx += 1;
+                i += 1;
+            }
+        } 
     }
 }
 
@@ -56,36 +92,33 @@ fn parse_data(file_name: &str) -> (Vec<XYPos>, Vec<XYPos>) {
 
 fn main() {
     let (sensors, beacons) = parse_data("input.txt");
-    let mut x_min = i64::MAX;
-    let mut x_max = i64::MIN;
-    let mut x_ranges: Vec<(i64, i64)> = vec![(i64::MAX, i64::MIN); 4000000 + 1];
-    let mut coord = XYPos::new(0, 0);
+    let max_x: i64 = 4000000;
+    let max_y: i64 = 4000000;
+    let mut x_ranges: Vec<Ranges> = vec![Ranges::new(0, 0); max_y as usize + 1];
 
-    for row in 0..=4000000 {
+    for row in 0..=max_y {
         for (sensor, beacon) in sensors.iter().zip(beacons.iter()) {
+            let mut x_min = max_x; 
+            let mut x_max = 0; 
             let beacon_dist = sensor.man_dist(beacon);
 
             if i64::abs(sensor.y - row) <= beacon_dist {
                 x_min = cmp::min(x_min, sensor.x - i64::abs(beacon_dist - i64::abs(sensor.y - row)));
                 x_min = cmp::max(0, x_min); // Apply problem's constraints
                 x_max = cmp::max(x_max, sensor.x + i64::abs(beacon_dist - i64::abs(sensor.y - row)));
-                x_max = cmp::max(4000000, x_max);
+                x_max = cmp::min(max_x, x_max);
+                x_ranges[row as usize].insert_new_range(x_min, x_max);
             }
         }
-        x_ranges[row as usize].0 = cmp::min(x_ranges[row as usize].0, x_min);
-        x_ranges[row as usize].1 = cmp::max(x_ranges[row as usize].1, x_max);
     }
 
     for (row, range) in x_ranges.iter().enumerate() {
-        if range.0 != 0 || range.1 != 4000000 {
-            coord = XYPos {
-                x: range.0,
-                y: row as i64
-            };
-
-            break;
+        if range.ranges.len() > 1 { 
+            println!("Row: {row}, Range: {:?}", range);
+            let x: i64 = range.ranges[0].end() + 1;
+            let y: i64 = row as i64;
+            println!("Coordinate: {x}, {y}");
+            println!("Tuning frequency: {}", x * 4000000i64 + y);
         }
     }
-
-    println!("Coordinate: {:?}", coord);
 }
