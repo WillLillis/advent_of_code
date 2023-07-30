@@ -56,11 +56,11 @@ impl Ranges {
         let mut i: usize = 1;
         while i < self.ranges.len() {
             if (self.ranges[idx].end() >= self.ranges[i].start()) ||
-            (*self.ranges[idx].end() == (self.ranges[i].start() - 1)) {
+            (*self.ranges[idx].end() == (self.ranges[i].start() - 1)) { // since we're dealing with
+                                                                        // ints, adjacent numbers
+                                                                        // should be joined
                 let new_start = self.ranges[idx].start();
                 let new_end = cmp::max(self.ranges[idx].end(), self.ranges[i].end());
-
-                //println!("{new_start}..={new_end}");
                 self.ranges[idx] = *new_start..=*new_end;
                 self.ranges.remove(i);
             } else {
