@@ -99,8 +99,6 @@ where
     let rock_height = rock.len();
     let mut fall_str = String::new();
 
-
-
     // place rock into chamber
     for (i, row) in rock.into_iter().rev().enumerate() {
         chamber[max_height + i + 4] = row;
@@ -134,7 +132,6 @@ where
                 }
             }
         }
-
         if in_bounds {
             // do the push
             let fall_char = match push {
@@ -203,13 +200,8 @@ where
             fall_str.push('X'); // 'X' to indicate push didn't occur
         }
 
-        //for (j, row) in chamber.iter().enumerate().rev().skip(26250) {
-        //    println!("{:5}: {:?}", j, row);
-        //}
-
         // and then the fall
-        //
-        // validate first
+            // validate first
         in_bounds = true;
         'outer: for i in curr_height..curr_height + rock_height {    
              for (j, item) in chamber[i].clone().iter().enumerate() {
@@ -243,7 +235,8 @@ where
                     }
                 }
             }
-
+            
+            fall_str.push('E'); // 'E' to indicate End of a fall
             return (cmp::max(max_height, curr_height + rock_height - 1), fall_str);
         }
         // then move the blocks down
@@ -260,8 +253,6 @@ where
                     }
                 }
             }
-        
-
             // erase the old row
             for (j, item) in chamber[i].clone().iter().enumerate() {
                 match item {
@@ -277,15 +268,13 @@ where
         }
 
 
-        //for (j, row) in chamber.iter().enumerate().rev().skip(5000 - 60) {
-        //    println!("{:5}: {:?}", j, row);
-        //}
         curr_height -= 1;
     }
 }
 
 fn main() {
-    let input = fs::read_to_string("test_input.txt").unwrap();
+    const NUM_ROCKS: usize = 1_000_000_000_000usize;
+    let input = fs::read_to_string("input.txt").unwrap();
     let mut jets = input.trim().chars().map(|c| PushDir::new(c)).cycle();
 
     let mut rocks = get_rocks().into_iter().cycle();
@@ -297,43 +286,54 @@ fn main() {
     
     // implement cycle detection by matching "fall lines" of every full set (5) of rocks
         // https://www.reddit.com/r/adventofcode/comments/znykq2/2022_day_17_solutions/jl9j24u/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-    let mut cache: Vec<String> = Vec::new();
+    // variables to track the current sim
+    let mut fall_cache = String::new();
+    let mut height_cache = vec![0];
+    let mut latest = String::new();
+    let mut latest_count = 0;
     let mut height = 0;
-    'rock_loop: for i in 0..2022 {
+    // stuff we want to track after breaking out of the first sim loop
+    let mut cycle_height = 0;
+    let mut cycle_len = 0;
+    let mut end_rock_num = 0;
+
+    'rock_loop: for i in 0..NUM_ROCKS {
         (height, fall_str) = sim_fall(&mut chamber, &mut jets, &mut rocks, height);
-        cache.push(fall_str);
+        latest.push_str(&fall_str);
+        latest_count += 1;
+        height_cache.push(height);
 
-        if i % rock_len == 0 && i > 5 {
-            // check for cycles, checking rock_len fall strings at a time
-            let mut cycle_idx = 0;
-            let mut old_falls = cache.iter().take(cache.len() - rock_len);
-
-            while cycle_idx < cache.iter().count() - rock_len {
-                println!("Another round of comparisons...(cycle_idx = {cycle_idx})");
-                if cache.iter().rev().take(rock_len).rev().all(|f| { 
-                                                               println!("new_fall = {f}");
-                                                               let old_fall = old_falls.next().unwrap();
-                                                               println!("\told_fall = {old_fall}");
-                                                               f == old_fall
-                }) {
-                    println!("Found a cycle!!!! {cycle_idx} -> {i}");
-                    break 'rock_loop;
-                }
-                cycle_idx += rock_len;
+        if latest_count == rock_len {
+            // if we've already seen this 'latest' sequence, we've found a cycle!
+            if fall_cache.contains(&latest) {
+                let parts: Vec<&str> = fall_cache.split(&latest).collect(); // before and after the
+                                                                            // cycle's start
+                assert!(parts.len() == 2); // sanity check
+                let start_rock_num = parts[0].chars().fold(0, |count, c| {
+                    count + if c == 'E' {1} else {0}
+                })             // marks the start of the rock cycle...
+                   + rock_len; // ...we need the end so we don't double count
+                end_rock_num = i;
+                cycle_height = height - height_cache[start_rock_num];
+                cycle_len = parts[1].chars().fold(0, |count, c| {
+                    count + if c == 'E' {1} else {0}
+                }) + rock_len;
+                break 'rock_loop;        
+            } else {
+                fall_cache.push_str(&latest);
+                latest.clear();
+                latest_count = 0;
             }
         }
-
     }
 
-    //for (i, row) in chamber.iter().enumerate().rev().skip(5000 - 60){
-    //    println!("{:5}: {:?}", i, row);
-    //}
+    let num_cycles = (NUM_ROCKS - end_rock_num) / cycle_len;
+    let remaining = NUM_ROCKS - end_rock_num - 1 - (num_cycles * cycle_len);
     
-
-
-    for (i, fall) in cache.iter().enumerate() {
-        println!("{i:3}: {fall}");
+    for _ in 0..remaining {
+        (height, _) = sim_fall(&mut chamber, &mut jets, &mut rocks, height); 
     }
-
-    println!("Tower height after 2022 rocks: {height}");
+    // add the total due to the repeated cycles
+    height += num_cycles * cycle_height;
+    println!("Tower height after {NUM_ROCKS} rocks: {height}");
 }
