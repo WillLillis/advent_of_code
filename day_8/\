@@ -1,0 +1,10 @@
+use std::fs;
+
+fn main() {
+    let input = fs::read_to_string("input.txt").expect("Failed to read the file");
+    let input = input.lines();
+    let mut n_trees: u32 = 0;
+
+    
+    println!("Visible Trees: {n_trees}");
+}

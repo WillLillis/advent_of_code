@@ -201,7 +201,7 @@ fn get_max_geode(blueprint: &Blueprint) -> u32 {
 }
 
 fn main() {
-    let blueprints = get_blueprints("input.txt");
+    let blueprints = get_blueprints("test_input.txt");
 
     let mut max_geodes: Vec<u32> = Vec::new();
     for (i, blueprint) in blueprints.iter().enumerate() {

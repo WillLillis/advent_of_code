@@ -267,14 +267,7 @@ fn main() {
     let mut jets = input.trim().chars().cycle();
 
     let mut rocks = get_rocks().into_iter().cycle();
-    
-    // to define our simulation space, we'll take a conservative estimate and assume 
-    // all the shapes stack up on top of one another
-    // that is, every cycle (every 5 rocks fallen) results in the height of the tower
-    // to be raised by 1 + 3 + 3 + 4 + 2 = 13 blocks
-    // 13 * 2022 = 26,286 
-    // + 1 = 26,287 to account for the floor
-    // + 4 = 26,291 and then an additional 4 for the last block
+   
     let mut chamber: Vec<Vec<char>> = vec![vec!['.'; 7]; 5000];
     chamber[0] = vec!['#'; 7];
 
