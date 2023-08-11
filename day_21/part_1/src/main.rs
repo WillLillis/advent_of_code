@@ -1,42 +1,133 @@
 use std::fs;
 use std::collections::HashMap;
+// https://levelup.gitconnected.com/rust-binary-tree-30efdd355b60
 
-#[derive(Debug, Clone)]
-enum BinaryOp {
+#[derive(Debug, Clone, Copy)]
+enum Op<T> {
     Add,
     Sub,
-    Mult,
-    Div
+    Mul,
+    Div,
+    Val(Option<T>)
 }
+
+// convenience type alias
+type ChildNode<T> = Option<Box<Node<T>>>;
 
 #[derive(Debug, Clone)]
-enum MonkeyOperand {
-    Num(i64),
-    Ref(String)
+struct Node<T> {
+    left: ChildNode<T>,
+    right: ChildNode<T>,
+    op: Op<T>
 }
 
-impl MonkeyOperand {
-    fn get_val(&self) -> Option<&i64> {
-        match self {
-            MonkeyOperand::Num(num) => Some(num),
-            MonkeyOperand::Ref(_) => None
+struct BinTree<T> {
+    head: Option<Node<T>>
+}
+
+impl<T> Node<T> {
+    fn new(op: Op<T>, left: Node<T>, right: Node<T>) -> Self {
+        Node::<T> {
+            op,
+            left: Some(Box::new(left)),
+            right: Some(Box::new(right))
+        }
+    }
+
+    fn add_node(left: Node<T>, right: Node<T>) -> Node<T> {
+        Node::new(Op::Add, left, right)
+    }
+
+    fn sub_node(left: Node<T>, right: Node<T>) -> Node<T> {
+        Node::new(Op::Sub, left, right)
+    }
+    
+    fn mul_node(left: Node<T>, right: Node<T>) -> Node<T> {
+        Node::new(Op::Mul, left, right)
+    }
+    
+    fn div_node(left: Node<T>, right: Node<T>) -> Node<T> {
+        Node::new(Op::Div, left, right)
+    }
+
+    fn val_node(val: Option<T>) -> Node<T> {
+        Node { op: Op::Val(val), left: None, right: None }
+    }
+}
+
+impl<T> BinTree<T> 
+where
+    T: std::ops::Add<T, Output = T> + std::ops::Sub<T, Output = T>
+    +  std::ops::Mul<T, Output = T> + std::ops::Div<T, Output = T>
+    +  std::cmp::PartialEq<i64> + Clone + Copy + std::fmt::Debug
+{
+    pub fn new(head: Node<T>) -> Self {
+        BinTree::<T> { head: Some(head) }
+    }
+    
+    pub fn collapse(node: &Box<Node<T>>) -> Option<T> {
+        let mut r: Option<T> = None;
+        let mut l: Option<T> = None;
+
+        if let Op::Val(Some(val)) = node.op {
+            return Some(val);
+        }
+        
+        if let Some(left) = &node.left {
+            l = BinTree::collapse(left);
+        }
+        
+        if let Some(right) = &node.right {
+            r = BinTree::collapse(right);
+        }
+        
+        // will this work if we don't fully collapse
+        let (l, r) = match (l, r) {
+            (Some(x), Some(y)) => (x, y),
+            _ => {
+                return None;
+            }
+        };
+       
+        match &node.op {
+            Op::Add => { Some(l + r) },
+            Op::Sub => { Some(l - r) },
+            Op::Mul => { Some(l * r) },
+            Op::Div => {
+                if r == 0 { 
+                    panic!("attempted divide-by-zero operation.")  
+                }
+                Some(l / r)
+            },
+            _ => {
+                panic!("This code shouldn't be reachable!");
+            }
         }
     }
 }
 
-#[derive(Debug, Clone)]
-struct Monkey {
-    operand_1: MonkeyOperand,
-    operand_2: MonkeyOperand,
-    op: BinaryOp
+#[derive(Debug)]
+struct Monkey<T> {
+    left: Option<String>,
+    right: Option<String>,
+    op: Op<T>
 }
 
-fn get_monkeys(file_name: &str) -> (HashMap<String, Monkey>, HashMap<String, i64>) {
+impl<T> Monkey<T> {
+    fn new(left: Option<String>, right: Option<String>, op: Op<T>) -> Self {
+        Monkey {
+            left,
+            right,
+            op
+        }
+    }
+}
+
+fn get_monkeys(file_name: &str) -> HashMap<String, Monkey<i64>> {
     let input = fs::read_to_string(file_name)
         .expect("Failed to read the input file");
 
-    let mut monkeys: HashMap<String, Monkey> = HashMap::new();
-    let mut resolved: HashMap<String, i64> = HashMap::new();
+    let mut monkeys: HashMap<String, Monkey<i64>> = HashMap::new();
 
     for line in input.lines() {
         let mut parts = line
@@ -48,24 +139,24 @@ fn get_monkeys(file_name: &str) -> (HashMap<String, Monkey>, HashMap<String, i64
         let next = parts.next().unwrap();
 
         if let Ok(num) = next.parse::<i64>() {
-            resolved.insert(String::from(name), num);
+            monkeys.insert(String::from(name), Monkey::new(None, None, Op::Val(Some(num))));
         } else {
-            let name_1 = MonkeyOperand::Ref(String::from(next));
+            let name_1 = Some(String::from(next));
             let op = match parts.next().unwrap() {
-                "+" => BinaryOp::Add,
-                "-" => BinaryOp::Sub,
-                "*" => BinaryOp::Mult,
-                "/" => BinaryOp::Div,
+                "+" => Op::Add,
+                "-" => Op::Sub,
+                "*" => Op::Mul,
+                "/" => Op::Div,
                 _ => {
                     panic!("Parsing error!");
                 }
             };
-            let name_2 = MonkeyOperand::Ref(String::from(parts.next().unwrap()));
+            let name_2 = Some(String::from(parts.next().unwrap()));
             
             
             let monkey = Monkey {
-                operand_1: name_1,
-                operand_2: name_2,
+                left: name_1,
+                right: name_2,
                 op
             };
 
@@ -73,100 +164,61 @@ fn get_monkeys(file_name: &str) -> (HashMap<String, Monkey>, HashMap<String, i64
         }
     }
 
-    return (monkeys, resolved);
+    return monkeys;
 }
 
-fn resolve_dependencies(monkeys: &mut HashMap<String, Monkey>, resolved: &mut HashMap<String, i64>) {
-    // need to rethink this, can't do straightforward in place manipulation
-    // because of the borrow checker
-    let mut changed = true;
-    let mut to_remove = None;
-    while changed {
-        changed = false;
-        for (name, exp) in monkeys.iter_mut() {
-            to_remove = None;
-            let op_1 = exp.operand_1.clone();
-            match op_1 {
-                MonkeyOperand::Ref(ref_name) => {
-                    match resolved.get(&ref_name) {
-                        Some(val) => {
-                            changed = true;
-                            exp.operand_1 = MonkeyOperand::Num(*val);
-                        },
-                        None => {}
-                    }
-                },
-                _ => {}
-            }
-            let op_2 = exp.operand_2.clone();
-            match op_2 {
-                MonkeyOperand::Ref(ref_name) => {
-                    match resolved.get(&ref_name) {
-                        Some(val) => {
-                            changed = true;
-                            exp.operand_2 = MonkeyOperand::Num(*val);
-                        },
-                        None => {}
-                    }
-                },
-                _ => {}
-            }
+fn create_node(monkeys: &HashMap<String, Monkey<i64>>, name: &str) -> Node<i64> {
+    let info = monkeys.get(name).unwrap();
 
-            let val_1 = exp.operand_1.get_val();
-            let val_2 = exp.operand_2.get_val();
-
-            let val = match (val_1, val_2) {
-                (Some(val_1), Some(val_2)) => {    
-                    match exp.op {
-                        BinaryOp::Add => {
-                            Some(val_1 + val_2)
-                        },
-                        BinaryOp::Sub => {
-                            Some(val_1 - val_2)
-                        },
-                        BinaryOp::Mult => {
-                            Some(val_1 * val_2)
-                        },
-                        BinaryOp::Div => {
-                            Some(val_1 / val_2)
-                        }
-                    }
-                },
-                _ => { None }
-            };
-
-            match val {
-                Some(x) => { 
-                    resolved.insert(String::from(name), x); 
-                    to_remove = Some(name);
-                    //break;
-                },
-                None => {}
-            }
+    match info.op {
+        Op::Add => {
+            let left_name = info.left.clone().unwrap();
+            let right_name = info.right.clone().unwrap();
+            Node::add_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
+        },
+        Op::Sub => {
+            let left_name = info.left.clone().unwrap();
+            let right_name = info.right.clone().unwrap();
+            Node::sub_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
+        },
+        Op::Mul => {
+            let left_name = info.left.clone().unwrap();
+            let right_name = info.right.clone().unwrap();
+            Node::mul_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
+        },
+        Op::Div => {
+            let left_name = info.left.clone().unwrap();
+            let right_name = info.right.clone().unwrap();
+            Node::div_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
+        },
+        Op::Val(x) => {
+            Node::val_node(x)
         }
-        // can't remove the resolved entry because it constitutes a double borrow, not sure how to
-        // get around this
-        //match to_remove {
-        //    Some(name) => {
-        //        monkeys.remove(name);
-        //    },
-        //    None => {}
-        //}
     }
-    
+
 }
 
 fn main() {
-    let (mut monkeys, mut resolved) = get_monkeys("input.txt");
+    let monkeys = get_monkeys("input.txt");
+    
+    let root_info = monkeys.get("root").expect("No root monkey found!");
 
-    resolve_dependencies(&mut monkeys, &mut resolved);
+    let mut root = Node {
+        left: None,
+        right: None,
+        op: root_info.op
+    };
 
-    match resolved.get("root") {
-        Some(num) => {
-            println!("The root monkey will shout {num}");
+    root.left = Some(Box::new(create_node(&monkeys, &root_info.left.clone().unwrap())));
+    root.right = Some(Box::new(create_node(&monkeys, &root_info.right.clone().unwrap())));
+
+    match BinTree::collapse(&Box::new(root)) {
+        Some(val) => {
+            println!("The monkeys will shout {val}");
         },
         None => {
-            println!("Failed to resolve the dependencies");
+            println!("Failed to evaluate the tree");
         }
     }
+
 }
