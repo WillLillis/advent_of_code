@@ -1,6 +1,6 @@
 use std::fs;
 use std::collections::HashMap;
-// https://levelup.gitconnected.com/rust-binary-tree-30efdd355b60
+// Tree stuff adapted from: https://levelup.gitconnected.com/rust-binary-tree-30efdd355b60
 
 #[derive(Debug, Clone, Copy)]
 enum Op<T> {
@@ -8,7 +8,8 @@ enum Op<T> {
     Sub,
     Mul,
     Div,
-    Val(Option<T>)
+    Val(Option<T>),
+    Eq // special case for the root monkey
 }
 
 // convenience type alias
@@ -50,6 +51,10 @@ impl<T> Node<T> {
         Node::new(Op::Div, left, right)
     }
 
+    fn eq_node(left: Node<T>, right: Node<T>) -> Node<T> {
+        Node::new(Op::Eq, left, right)
+    }
+
     fn val_node(val: Option<T>) -> Node<T> {
         Node { op: Op::Val(val), left: None, right: None }
     }
@@ -81,7 +86,6 @@ where
             r = BinTree::collapse(right);
         }
         
-        // will this work if we don't fully collapse
         let (l, r) = match (l, r) {
             (Some(x), Some(y)) => (x, y),
             _ => {
@@ -104,14 +108,6 @@ where
             }
         }
     }
-
-    // solve func for part 2
-    // traverse the human side of the tree, with a "Tracked number" equal to the other side's val
-        // at each node, check if either side is collapsible to a value
-        // if it is, do the inverse operation of the node between the tracked val and that
-        // collapsed val, then go down to the child that wasn't collapsible
-            // if it's the human node, then we return the tracked value
-            // if it's another node, repeat the above procedure
 }
 
 #[derive(Debug)]
@@ -150,7 +146,7 @@ fn get_monkeys(file_name: &str) -> HashMap<String, Monkey<i64>> {
             monkeys.insert(String::from(name), Monkey::new(None, None, Op::Val(Some(num))));
         } else {
             let name_1 = Some(String::from(next));
-            let op = match parts.next().unwrap() {
+            let mut op = match parts.next().unwrap() {
                 "+" => Op::Add,
                 "-" => Op::Sub,
                 "*" => Op::Mul,
@@ -159,6 +155,10 @@ fn get_monkeys(file_name: &str) -> HashMap<String, Monkey<i64>> {
                     panic!("Parsing error!");
                 }
             };
+            // special case for part 2
+            if name == "root" {
+                op = Op::Eq;
+            }
             let name_2 = Some(String::from(parts.next().unwrap()));
             
             
@@ -200,97 +200,137 @@ fn create_node(monkeys: &HashMap<String, Monkey<i64>>, name: &str) -> Node<i64> 
             Node::div_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
         },
         Op::Val(x) => {
-            Node::val_node(x)
+            // special case: ignore the "humn" value for part 2
+            if name == "humn" {
+                Node::val_node(None)
+            } else {
+                Node::val_node(x)
+            }
+        },
+        Op::Eq => {
+           if name != "root" {
+                panic!("Only the root node should have operation of type Eq");
+           }
+           let left_name = info.left.clone().unwrap();
+           let right_name = info.right.clone().unwrap();
+           Node::eq_node(create_node(monkeys, &left_name), create_node(monkeys, &right_name))
         }
     }
+}
 
+// Inspiration for algo's track_val from: https://github.com/frhel/AdventOfCode/blob/master/2022/day_21/js/index.js#L121
+fn solve(node: &Box<Node<i64>>, track_val: i64) -> i64 {
+    // find which subtree side is collapsible
+    // do the inverse op on the track_val with that collapsed value
+    // and then recurse on the other subtree side
+   
+    match node.op {
+        Op::Val(None) => {
+            return track_val;
+        },
+        _ => {}
+    }
+
+    let left_side: bool;
+    let side_val = match BinTree::collapse(&node.left.clone().unwrap()) {
+        Some(val) => { 
+            left_side = true;
+            val 
+        },
+        None => {
+            // Failed to evaluate the left subtree, checking the right...
+            match BinTree::collapse(&node.right.clone().unwrap()) {
+                Some(val) => { 
+                    left_side = false;
+                    val 
+                },
+                None => {
+                    panic!("Failed to evaluate either subtree");
+                }
+            }
+        }
+    };
+
+    return match node.op {
+        Op::Add => {
+            // Inverse of addition is subtraction...
+            if left_side { 
+                solve(&node.right.clone().unwrap(), track_val - side_val)
+            } else { 
+                solve(&node.left.clone().unwrap(), track_val - side_val) 
+            }
+        },
+        Op::Sub => {
+            // Careful! Subtraction isn't commutative
+            if left_side {
+                solve(&node.right.clone().unwrap(), -(track_val - side_val))
+            } else {
+                solve(&node.left.clone().unwrap(), track_val + side_val)
+            }
+        },
+        Op::Mul => {
+            // Inverse of multiplication is division
+            if left_side {
+                solve(&node.right.clone().unwrap(), track_val / side_val)
+            } else {
+                solve(&node.left.clone().unwrap(), track_val / side_val)
+            }
+        },
+        Op::Div => {
+            // Inverse of division is multiplication
+            if left_side {
+                solve(&node.right.clone().unwrap(), track_val * side_val)
+            } else {
+                solve(&node.left.clone().unwrap(), track_val * side_val)
+            }
+        },
+        Op::Val(None) => {
+            panic!("Reached the humn node in an unexpected way");
+        },
+        Op::Val(Some(_)) => {
+            panic!("Expected expression, found value.");
+        }
+        Op::Eq => {
+            panic!("Only the root monkey should have Op type Eq");
+        }
+    }
 }
 
 fn main() {
     let monkeys = get_monkeys("input.txt");
+    let root = create_node(&monkeys, "root");
     
-    let root_info = monkeys.get("root").expect("No root monkey found!");
-
-    let mut root = Node {
-        left: None,
-        right: None,
-        op: root_info.op
+    // try to eval each side of the tree next
+    let left_side: bool;
+    let side_val = match BinTree::collapse(&root.left.clone().unwrap()) {
+        Some(val) => { 
+            left_side = true;
+            val 
+        },
+        None => {
+            println!("Failed to evaluate the left subtree, checking the right...");
+            
+            match BinTree::collapse(&root.right.clone().unwrap()) {
+                Some(val) => { 
+                    left_side = false;
+                    val 
+                },
+                None => {
+                    println!("Failed to evaluate the right subtree!");
+                    panic!("Failed to evaluate either subtree");
+                }
+            }
+        }
     };
 
-    root.left = Some(Box::new(create_node(&monkeys, &root_info.left.clone().unwrap())));
-    root.right = Some(Box::new(create_node(&monkeys, &root_info.right.clone().unwrap())));
+    println!("Evaluated the {} side: {}", if left_side {"left"} else {"right"}, side_val);
 
-    for monkey in monkeys {
-        println!("{:?}", monkey);
+    let human_val;
+    if left_side {
+        human_val = solve(&root.right.clone().unwrap(), side_val);
+    } else {
+        human_val = solve(&root.left.clone().unwrap(), side_val);
     }
 
-    println!("\n\n\n\nThe moment of truth:\n\n\n");
-    println!("{:#?}", root);
-
-    match BinTree::collapse(&Box::new(root)) {
-        Some(val) => {
-            println!("The monkeys will shout {val}");
-        },
-        None => {
-            println!("Failed to evaluate the tree");
-        }
-    }
-
+    println!("The human value should be {}", human_val);
 }
-
-
-
-/*fn create_node<T>(monkeys: &HashMap<String, Monkey<T>>, name: &str) -> Node<T>
-where
-T: Copy
-{
-    // special case for humn entry
-   
-    // if it's a value monkey create a leaf node and return
-    // if it's an expression monkey create and expression node and recurse to the left and right
-    let info = monkeys.get(name).unwrap();
-    let op = info.op;
-    let left_name = info.operand_1;
-    let right_name = info.operand_2;
-
-    Node {
-        left: create_node(monkeys, left_name),
-        right: create_node(monkeys, right_name),
-        op
-    }
-
-}*/
-
-/*fn main() {
-    // (10 - (2 * 2)) + (8 + (10 / 2))
-    let test_tree = BinTree::new(
-        Node::add_node(
-            Node::sub_node(
-            let left_name = info.left.clone().unwrap();
-            let right_name = info.right.clone().unwrap();
-                Node::val_node(Some(10)),
-                Node::mul_node(
-                    Node::val_node(Some(2)),
-                    Node::val_node(Some(2))
-                )
-            ),
-            Node::add_node(
-                Node::val_node(Some(8)),
-                Node::div_node(
-                    Node::val_node(Some(10)),
-                    Node::val_node(Some(2))
-                )
-            )
-        )
-    );
-
-    //match BinTree::collapse(&Box::new(test_tree.head.unwrap())) {
-    match BinTree::collapse(&test_tree.head.unwrap().left.unwrap()) {
-        Some(val) => {
-            println!("Evaluated tree to {val}.");
-        },
-        None => {
-            println!("Failed to evaluate the tree.");
-        }
-    }
-}*/
