@@ -197,7 +197,7 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
                     let curr_idx = pos.row_idx;
                     for incr in 1..=num {
                         // first check if we're running off the bottom edge
-                        if curr_row == map.len() - 1 || curr_row + incr >= map.len() || map[curr_row + incr][curr_idx] == ' ' {
+                        if curr_row + incr >= map.len() || map[curr_row + incr][curr_idx] == ' ' {
                             let first_row = col_first_idx(map, curr_idx, true);
                             // if we can wrap around do it
                             if map[first_row][curr_idx] == '.' {
