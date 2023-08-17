@@ -1,4 +1,5 @@
 use std::{fs, cmp};
+use std::iter::Peekable;
 
 #[derive(Debug)]
 enum Rotation {
@@ -297,6 +298,43 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
     
 }
 
+fn get_move<T>(instr: &mut Peekable<T>) -> Option<Move> 
+where 
+T: Iterator<Item = char>
+{
+        let next_move;
+
+        let c = match instr.next() {
+            Some(x) => x,
+            None => { return None; }
+        };
+        if c == 'L' || c == 'R' { // if it's a spin direction then do that
+            next_move = Some(Move::turn_move(c))
+        } else { // else it's a number instruction...
+            let mut num_str = String::from(c); // grab the first digit
+            loop { // and all the digits that follow
+                match instr.peek() {
+                    Some('L')| Some('R') => {
+                        break;
+                    },
+                    Some(_) => {
+                        let num = instr.next().unwrap();
+                        num_str.push(num);
+                    },
+                    None => {
+                        break;
+                    }
+                }
+
+            }
+            let num = num_str.parse::<usize>().unwrap();
+            next_move = Some(Move::Move(num));
+        }
+
+
+    return next_move;
+}
+
 
 fn main() {
 
@@ -311,34 +349,10 @@ fn main() {
     // parse path...
     let mut iter = path.trim().chars().peekable();
     loop {
-        let next_move;
-
-        let c = match iter.next() {
-            Some(x) => x,
+        let next_move = match get_move(&mut iter) {
+            Some(instr) => instr,
             None => { break; }
         };
-        if c == 'L' || c == 'R' { // if it's a spin direction then do that
-            next_move = Move::turn_move(c);
-        } else { // else it's a number instruction...
-            let mut num_str = String::from(c); // grab the first digit
-            loop { // and all the digits that follow
-                match iter.peek() {
-                    Some('L')| Some('R') => {
-                        break;
-                    },
-                    Some(_) => {
-                        let num = iter.next().unwrap();
-                        num_str.push(num);
-                    },
-                    None => {
-                        break;
-                    }
-                }
-
-            }
-            let num = num_str.parse::<usize>().unwrap();
-            next_move = Move::Move(num);
-        }
 
         pos = make_move(&map, pos, next_move);
     }
