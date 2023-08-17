@@ -1,4 +1,4 @@
-use std::{fs, cmp};
+use std::fs;
 use std::iter::Peekable;
 
 #[derive(Debug)]
@@ -68,6 +68,7 @@ impl Facing {
 #[derive(Debug)]
 struct Pos {
    orientation: Facing,
+   cube_face: usize,
    row: usize,
    row_idx: usize
 }
@@ -78,25 +79,91 @@ struct Pos {
 // you're on, and dictate the transitions (which face and which direction)
 // - code in make_move shouldn't need too much refactoring, just need to 
 // explicitly change faces when we run over one of the edges
-fn get_notes(file_name: &str) -> (Vec<Vec<char>>, String) {
+fn get_notes(file_name: &str) -> (Vec<Vec<Vec<char>>>, String) {
     let input = fs::read_to_string(file_name)
         .expect("Failed to read the input file");
+    const FACE_WIDTH: usize = 50;
+    const FACE_LEN: usize = 50;
 
-    let mut map:Vec<Vec<char>> = input
+    let map: Vec<Vec<char>> = input
         .lines()
         .take_while(|s| !s.is_empty())
         .map(|s| s.chars().collect())
         .collect();
 
-    let max_len = map.iter().fold(0, |max, x| cmp::max(max, x.len()));
+    // could come up with a general solution, but let's just hard code this for now...
+
+    let mut maps: Vec<Vec<Vec<char>>> = Vec::new(); 
+    maps.push(Vec::new()); // Face 1
+    maps.push(Vec::new()); // Face 2
     
-    for i in 0..map.len() {
-        let len = map[i].len();
-        if len < max_len {
-            map[i].append(&mut vec![' '; max_len - len]);
-        }
-    
+    let block = map.clone().into_iter().take(FACE_LEN);
+    for line in block {
+        let line = line.iter().skip_while(|c| **c == ' ');
+        
+        maps[0].push(
+            line
+            .clone()
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
+        
+        maps[1].push(
+            line
+            .skip(FACE_WIDTH)
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
     }
+
+    maps.push(Vec::new()); // Face 3
+
+    let block = map.clone().into_iter().skip(FACE_LEN).take(FACE_LEN);
+    for line in block {
+        let line = line.iter().skip_while(|c| **c == ' ');
+
+        maps[2].push(
+            line
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
+    }
+
+    maps.push(Vec::new()); // Face 4
+    maps.push(Vec::new()); // Face 5
+
+    let block = map.clone().into_iter().skip(2 * FACE_LEN).take(FACE_LEN);
+    for line in block {
+        let line = line.iter().skip_while(|c| **c == ' ');
+
+        maps[3].push(
+            line
+            .clone()
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
+
+        maps[4].push(
+            line
+            .skip(FACE_WIDTH)
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
+    }
+
+    maps.push(Vec::new()); // Face 6
+    
+    let block = map.clone().into_iter().skip(3 * FACE_LEN) .take(FACE_LEN);
+    for line in block {
+        let line = line.iter().skip_while(|c| **c == ' ');
+
+        maps[5].push(
+            line
+            .take(FACE_WIDTH)
+            .map(|c| *c)
+            .collect());
+    }
+
 
     let path = String::from(input
                             .lines()
@@ -105,7 +172,7 @@ fn get_notes(file_name: &str) -> (Vec<Vec<char>>, String) {
                             .skip(1)
                             .collect::<String>());
 
-    return (map, path);
+    return (maps, path);
 }
 
 // find the first valid index in a given row
@@ -338,12 +405,16 @@ T: Iterator<Item = char>
 
 fn main() {
 
-    let (map, path) = get_notes("input.txt");
-    
+    let (maps, path) = get_notes("input.txt");
+   
+    return;
+    // TODO: work out how face to face translations go, make sure you're starting on the right
+    // face, update Pos data struct accordingly...
     let mut pos = Pos {
        orientation: Facing::Right,
+       cube_face: 0,
        row: 0,
-       row_idx: row_first_idx(&map, 0, true)
+       row_idx: 0
     };
 
     // parse path...
@@ -354,7 +425,7 @@ fn main() {
             None => { break; }
         };
 
-        pos = make_move(&map, pos, next_move);
+        pos = make_move(&maps, pos, next_move);
     }
 
     println!("Final position: {:#?}", pos);
