@@ -1,6 +1,9 @@
 use std::fs;
 use std::iter::Peekable;
 
+const FACE_WIDTH: usize = 50;
+const FACE_LEN: usize = 50;
+
 #[derive(Debug)]
 enum Rotation {
     Clockwise,
@@ -82,8 +85,6 @@ struct Pos {
 fn get_notes(file_name: &str) -> (Vec<Vec<Vec<char>>>, String) {
     let input = fs::read_to_string(file_name)
         .expect("Failed to read the input file");
-    const FACE_WIDTH: usize = 50;
-    const FACE_LEN: usize = 50;
 
     let map: Vec<Vec<char>> = input
         .lines()
@@ -232,6 +233,170 @@ fn col_first_idx(map: &Vec<Vec<char>>, col: usize, from_top: bool) -> usize {
     }
     
     panic!("No valid index found!");
+}
+
+// take in current position, assumes we take one more step in the current facing direction,
+// return the first position you'll land on the next face
+// there's definitely an elegant, cool, very general way to do this but I'm just not gonna do that
+// right now
+//
+// Arbitrary conventions based on the puzzle input, facing the cube head on
+    // 1 is the top face of the cube
+    // 2 is is the right face
+    // 3 is the front face
+    // 4 is the left face
+    // 5 is the bottom face
+    // 6 is the back face
+    // and all that minus 1 because of 0-based indexing
+fn get_next_face(pos: Pos) -> Pos {
+    let new_pos: Pos =
+    match pos.cube_face {
+        0 => {
+            match pos.orientation {
+                Facing::Right => {
+                   Pos {
+                        orientation: Facing::Right,
+                        cube_face: 1,
+                        row: pos.row,
+                        row_idx: 0
+                   }
+                },
+                Facing::Down => {
+                    Pos {
+                       orientation: Facing::Down,
+                       cube_face: 2,
+                       row: 0,
+                       row_idx: pos.row_idx
+                    }
+                },
+                Facing::Left => {
+                    Pos {
+                        orientation: Facing::Right,
+                        cube_face: 3,
+                        row: FACE_LEN - pos.row - 1,
+                        row_idx: 0
+                    }
+                },
+                Facing::Up => {
+                   Pos {
+                        orientation: Facing::Right,
+                        cube_face: 5,
+                        row: pos.row_idx,
+                        row_idx: 0
+                   }
+                }
+            }
+        },
+        1 => {
+            match pos.orientation {
+                Facing::Right => {
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 4,
+                        row: FACE_LEN - pos.row - 1,
+                        row_idx: FACE_WIDTH - 1
+                    }
+                },
+                Facing::Down => {
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 2,
+                        row: pos.row_idx,
+                        row_idx: FACE_WIDTH - 1
+                    }
+                },
+                Facing::Left => {
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 0,
+                        row: pos.row,
+                        row_idx: FACE_WIDTH - 1
+                    }
+                },
+                Facing::Up => {
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 5,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row_idx
+                    }
+                }
+            }
+        },
+        2 => {
+            match pos.orientation {
+                Facing::Right => {
+
+                },
+                Facing::Down => {
+
+
+                },
+                Facing::Left => {
+
+                },
+                Facing::Up => {
+
+                }
+            }
+        },
+        3 => {
+            match pos.orientation {
+                Facing::Right => {
+
+                },
+                Facing::Down => {
+
+
+                },
+                Facing::Left => {
+
+                },
+                Facing::Up => {
+
+                }
+            }
+        },
+        4 => {
+            match pos.orientation {
+                Facing::Right => {
+
+                },
+                Facing::Down => {
+
+
+                },
+                Facing::Left => {
+
+                },
+                Facing::Up => {
+
+                }
+            }
+        },
+        5 => {
+            match pos.orientation {
+                Facing::Right => {
+
+                },
+                Facing::Down => {
+
+
+                },
+                Facing::Left => {
+
+                },
+                Facing::Up => {
+
+                }
+            }
+        },
+        _ => {
+            panic!("Invalid cube face value!");
+        }
+    };
+
+    return new_pos;
 }
 
 fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
@@ -406,8 +571,7 @@ T: Iterator<Item = char>
 fn main() {
 
     let (maps, path) = get_notes("input.txt");
-   
-    return;
+ 
     // TODO: work out how face to face translations go, make sure you're starting on the right
     // face, update Pos data struct accordingly...
     let mut pos = Pos {
@@ -425,7 +589,7 @@ fn main() {
             None => { break; }
         };
 
-        pos = make_move(&maps, pos, next_move);
+        //pos = make_move(&maps, pos, next_move);
     }
 
     println!("Final position: {:#?}", pos);
