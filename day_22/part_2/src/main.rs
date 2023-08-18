@@ -76,12 +76,10 @@ struct Pos {
    row_idx: usize
 }
 
-// - TODO: need to redo map reading to get the 6 cube faces, store
-// as Vector of maps (Vec<Vec<Vec<char>>>)
-// - Need to get some other data structure to track which cube face
-// you're on, and dictate the transitions (which face and which direction)
-// - code in make_move shouldn't need too much refactoring, just need to 
-// explicitly change faces when we run over one of the edges
+// Do we want to back through and generalize this?
+    // get non-empty length of each 50 block of lines and determine number of
+    // rows from that
+    // somehow insert into the maps Vec<Vec<Vec<char>>> in a general manner???
 fn get_notes(file_name: &str) -> (Vec<Vec<Vec<char>>>, String) {
     let input = fs::read_to_string(file_name)
         .expect("Failed to read the input file");
@@ -176,65 +174,6 @@ fn get_notes(file_name: &str) -> (Vec<Vec<Vec<char>>>, String) {
     return (maps, path);
 }
 
-// find the first valid index in a given row
-// assumes there is a valid index, which is fine for this problem
-// but for more general use we'd have to be more careful
-fn row_first_idx(map: &Vec<Vec<char>>, row: usize, from_left: bool) -> usize { 
-    if from_left {
-        for idx in 0..map[row].len() {
-            match map[row][idx] {
-                '.'|'#' => {
-                    return idx;
-                },
-                _ => {
-                    continue;
-                }
-            }
-        }
-    } else { // from the right
-        for idx in (0..map[row].len()).rev() {
-            match map[row][idx] {
-                '.'|'#' => {
-                    return idx;
-                },
-                _ => {
-                    continue;
-                }
-            }
-        }
-    }
-    
-    panic!("No valid index found!");
-}
-
-fn col_first_idx(map: &Vec<Vec<char>>, col: usize, from_top: bool) -> usize {
-    if from_top {
-        for idx in 0..map.len() {
-            match map[idx][col] {
-                '.'|'#' => {
-                    return idx;
-                },
-                _ => {
-                    continue;
-                }
-            }
-        }
-    } else { // from the right
-        for idx in (0..map.len()).rev() {
-            match map[idx][col] {
-                '.'|'#' => {
-                    return idx;
-                },
-                _ => {
-                    continue;
-                }
-            }
-        }
-    }
-    
-    panic!("No valid index found!");
-}
-
 // take in current position, assumes we take one more step in the current facing direction,
 // return the first position you'll land on the next face
 // there's definitely an elegant, cool, very general way to do this but I'm just not gonna do that
@@ -248,7 +187,7 @@ fn col_first_idx(map: &Vec<Vec<char>>, col: usize, from_top: bool) -> usize {
     // 5 is the bottom face
     // 6 is the back face
     // and all that minus 1 because of 0-based indexing
-fn get_next_face(pos: Pos) -> Pos {
+fn get_next_face(pos: &Pos) -> Pos {
     let new_pos: Pos =
     match pos.cube_face {
         0 => {
@@ -326,68 +265,144 @@ fn get_next_face(pos: Pos) -> Pos {
         2 => {
             match pos.orientation {
                 Facing::Right => {
-
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 1,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row
+                    }
                 },
                 Facing::Down => {
-
-
+                    Pos {
+                        orientation: Facing::Down,
+                        cube_face: 4,
+                        row: 0,
+                        row_idx: pos.row_idx
+                    }
                 },
                 Facing::Left => {
-
+                    Pos {
+                        orientation: Facing::Down,
+                        cube_face: 3,
+                        row: 0,
+                        row_idx: pos.row
+                    }
                 },
                 Facing::Up => {
-
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 0,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row_idx
+                    }
                 }
             }
         },
         3 => {
             match pos.orientation {
                 Facing::Right => {
-
+                    Pos {
+                        orientation: Facing::Right,
+                        cube_face: 4,
+                        row: pos.row,
+                        row_idx: 0
+                    }
                 },
                 Facing::Down => {
-
-
+                    Pos {
+                        orientation: Facing::Down,
+                        cube_face: 5,
+                        row: 0,
+                        row_idx: pos.row_idx
+                    }
                 },
                 Facing::Left => {
-
+                    Pos {
+                        orientation: Facing::Right,
+                        cube_face: 0,
+                        row: FACE_LEN - pos.row - 1,
+                        row_idx: 0
+                    }
                 },
                 Facing::Up => {
-
+                    Pos {
+                        orientation: Facing::Right,
+                        cube_face: 2,
+                        row: pos.row_idx,
+                        row_idx: 0
+                    }
                 }
             }
         },
         4 => {
             match pos.orientation {
                 Facing::Right => {
-
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 1,
+                        row: FACE_LEN - pos.row - 1,
+                        row_idx: FACE_WIDTH - 1
+                    }
                 },
                 Facing::Down => {
-
-
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 5,
+                        row: pos.row_idx,
+                        row_idx: FACE_WIDTH - 1
+                    }
                 },
                 Facing::Left => {
-
+                    Pos {
+                        orientation: Facing::Left,
+                        cube_face: 3,
+                        row: pos.row,
+                        row_idx: FACE_WIDTH - 1
+                    }
                 },
                 Facing::Up => {
-
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 2,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row_idx
+                    }
                 }
             }
         },
         5 => {
             match pos.orientation {
                 Facing::Right => {
-
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 4,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row
+                    }
                 },
                 Facing::Down => {
-
-
+                    Pos {
+                        orientation: Facing::Down,
+                        cube_face: 1,
+                        row: 0,
+                        row_idx: pos.row_idx
+                    }
                 },
                 Facing::Left => {
-
+                    Pos {
+                        orientation: Facing::Down,
+                        cube_face: 0,
+                        row: 0,
+                        row_idx: pos.row
+                    }
                 },
                 Facing::Up => {
-
+                    Pos {
+                        orientation: Facing::Up,
+                        cube_face: 3,
+                        row: FACE_LEN - 1,
+                        row_idx: pos.row_idx
+                    }
                 }
             }
         },
@@ -399,7 +414,7 @@ fn get_next_face(pos: Pos) -> Pos {
     return new_pos;
 }
 
-fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
+fn make_move(maps: &Vec<Vec<Vec<char>>>, mut pos: Pos, next_move: Move) -> Pos {
     match next_move {
         Move::Move(num) => {
             match pos.orientation {
@@ -408,21 +423,20 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
                     let curr_idx = pos.row_idx;
                     for incr in 1..=num {
                         // first check if we're running off the right edge
-                        if curr_idx + incr >= map[curr_row].len() || (map[curr_row][curr_idx + incr] == ' ') {
-                            let first_idx = row_first_idx(map, curr_row, true);
+                        if curr_idx + incr >= FACE_WIDTH {
+                            let check_pos = get_next_face(&pos);
                             // if we can wrap around do it
-                            if map[curr_row][first_idx] == '.' {
-                                pos.row_idx = first_idx;
+                            if maps[check_pos.cube_face][check_pos.row][check_pos.row_idx] == '.' {    
                                 let tmp_move = Move::Move(num - incr);
-                                return make_move(map, pos, tmp_move);
+                                return make_move(maps, check_pos, tmp_move);
                             } else { // otherwise we're done
                                 pos.row_idx = curr_idx + incr - 1;
                                 return pos;
                             }
-                        } else if map[curr_row][curr_idx + incr] == '#' { // next check if we're blocked
+                        } else if maps[pos.cube_face][curr_row][curr_idx + incr] == '#' { // next check if we're blocked
                             pos.row_idx = curr_idx + incr - 1;
                             return pos;
-                        } else if map[curr_row][curr_idx + incr] == '.' { // or if we can just move one
+                        } else if maps[pos.cube_face][curr_row][curr_idx + incr] == '.' { // or if we can just move one
                             continue;
                         } else {
                             panic!("Unexpected map conditions!");
@@ -437,21 +451,20 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
                     let curr_idx = pos.row_idx;
                     for incr in 1..=num {
                         // first check if we're running off the bottom edge
-                        if curr_row + incr >= map.len() || map[curr_row + incr][curr_idx] == ' ' {
-                            let first_row = col_first_idx(map, curr_idx, true);
+                        if curr_row + incr >= FACE_LEN {
+                            let check_pos = get_next_face(&pos);
                             // if we can wrap around do it
-                            if map[first_row][curr_idx] == '.' {
-                                pos.row = first_row;
+                            if maps[check_pos.cube_face][check_pos.row][check_pos.row_idx] == '.' {
                                 let tmp_move = Move::Move(num - incr);
-                                return make_move(map, pos, tmp_move);
+                                return make_move(maps, check_pos, tmp_move);
                             } else { // otherwise we're done
                                 pos.row = curr_row + incr - 1;
                                 return pos;
                             }
-                        } else if map[curr_row + incr][curr_idx] == '#' { // next check if we're blocked
+                        } else if maps[pos.cube_face][curr_row + incr][curr_idx] == '#' { // next check if we're blocked
                             pos.row = curr_row + incr - 1;
                             return pos;
-                        } else if map[curr_row + incr][curr_idx] == '.' { // or if we can just move one
+                        } else if maps[pos.cube_face][curr_row + incr][curr_idx] == '.' { // or if we can just move one
                             continue;
                         } else {
                             panic!("Unexpected map conditions!");
@@ -466,21 +479,20 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
                     let curr_idx = pos.row_idx;
                     for incr in 1..=num {
                         // first check if we're running off the left edge
-                        if ((curr_idx as i32 - incr as i32) < 0) || map[curr_row][curr_idx - incr] == ' ' {
-                            let first_idx = row_first_idx(map, curr_row, false);
+                        if (curr_idx as i32 - incr as i32) < 0 {
+                            let check_pos = get_next_face(&pos);
                             // if we can wrap around do it
-                            if map[curr_row][first_idx] == '.' {
-                                pos.row_idx = first_idx;
+                            if maps[check_pos.cube_face][check_pos.row][check_pos.row_idx] == '.' {
                                 let tmp_move = Move::Move(num - incr);
-                                return make_move(map, pos, tmp_move);
+                                return make_move(maps, check_pos, tmp_move);
                             } else { // otherwise we're done
                                 pos.row_idx = (curr_idx as i32 - incr as i32 + 1) as usize;
                                 return pos;
                             }
-                        } else if map[curr_row][curr_idx - incr] == '#' { // next check if we're blocked
+                        } else if maps[pos.cube_face][curr_row][curr_idx - incr] == '#' { // next check if we're blocked
                             pos.row_idx = curr_idx - incr + 1;
                             return pos;
-                        } else if map[curr_row][curr_idx - incr] == '.' { // or if we can just move one
+                        } else if maps[pos.cube_face][curr_row][curr_idx - incr] == '.' { // or if we can just move one
                             continue;
                         } else {
                             panic!("Unexpected map conditions!");
@@ -495,21 +507,20 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
                     let curr_idx = pos.row_idx;
                     for incr in 1..=num {
                         // first check if we're running off the top edge
-                        if ((curr_row as i32 - incr as i32) < 0) || map[curr_row - incr][curr_idx] == ' ' {
-                            let first_row = col_first_idx(map, curr_idx, false);
+                        if (curr_row as i32 - incr as i32) < 0 {
+                            let check_pos = get_next_face(&pos);
                             // if we can wrap around do it
-                            if map[first_row][curr_idx] == '.' {
-                                pos.row = first_row;
+                            if maps[check_pos.cube_face][check_pos.row][check_pos.row_idx] == '.' {
                                 let tmp_move = Move::Move(num - incr);
-                                return make_move(map, pos, tmp_move);
+                                return make_move(maps, check_pos, tmp_move);
                             } else { // otherwise we're done
                                 pos.row = (curr_row as i32 - incr as i32 + 1) as usize;
                                 return pos;
                             }
-                        } else if map[curr_row - incr][curr_idx] == '#' { // next check if we're blocked
+                        } else if maps[pos.cube_face][curr_row - incr][curr_idx] == '#' { // next check if we're blocked
                             pos.row = curr_row - incr + 1;
                             return pos;
-                        } else if map[curr_row - incr][curr_idx] == '.' { // or if we can just move one
+                        } else if maps[pos.cube_face][curr_row - incr][curr_idx] == '.' { // or if we can just move one
                             continue;
                         } else {
                             panic!("Unexpected map conditions!");
@@ -527,7 +538,6 @@ fn make_move(map: &Vec<Vec<char>>, mut pos: Pos, next_move: Move) -> Pos {
             return pos;
         }
     }
-    
 }
 
 fn get_move<T>(instr: &mut Peekable<T>) -> Option<Move> 
@@ -563,17 +573,13 @@ T: Iterator<Item = char>
             next_move = Some(Move::Move(num));
         }
 
-
     return next_move;
 }
-
 
 fn main() {
 
     let (maps, path) = get_notes("input.txt");
  
-    // TODO: work out how face to face translations go, make sure you're starting on the right
-    // face, update Pos data struct accordingly...
     let mut pos = Pos {
        orientation: Facing::Right,
        cube_face: 0,
@@ -589,13 +595,32 @@ fn main() {
             None => { break; }
         };
 
-        //pos = make_move(&maps, pos, next_move);
+        //println!("{:#?}", next_move);
+        pos = make_move(&maps, pos, next_move);
     }
 
     println!("Final position: {:#?}", pos);
-    let final_row = pos.row + 1;
-    let final_col = pos.row_idx + 1;
+    let mut final_row = pos.row + 1;
+    final_row += match pos.cube_face {
+        1|2 => 0,
+        3 => FACE_LEN,
+        4|5 => 2 * FACE_LEN,
+        6 => 3 * FACE_LEN,
+        _ => {
+            panic!("Invalid final cube face number!");
+        }
+    };
+    let mut final_col = pos.row_idx + 1;
+    final_col += match pos.cube_face {
+        1|3|5 => FACE_WIDTH,
+        2 => 2 * FACE_WIDTH,
+        4|6 => 0,
+        _ => {
+            panic!("Invalid cube face number!");
+        }
+    };
     println!("Adjusted: Row: {}, Col: {}", final_row, final_col);
+    
     let mut password = (1000 * final_row) + (4 * final_col);
     password += match pos.orientation {
         Facing::Right => 0,
