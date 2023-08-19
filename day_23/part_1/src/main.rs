@@ -158,7 +158,8 @@ fn main() {
     let mut first_check_idx: usize = 0;
     while set_planned_pos(&mut elves, &curr_elves, first_check_idx) > 0 {
         first_check_idx += 1 % CHECK_DIRS.len();
-        do_moves(&mut elves, &mut curr_elves); 
+        do_moves(&mut elves, &mut curr_elves);
+        println!("hi");
     }
 
 }
