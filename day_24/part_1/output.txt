@@ -1,0 +1,260 @@
+Wrapping: XY {
+    x: 5,
+    y: 0,
+} (Up) to XY {
+    x: 5,
+    y: -4,
+}
+Wrapping: XY {
+    x: 7,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 0,
+    y: -4,
+} (Left) to XY {
+    x: 6,
+    y: -4,
+}
+Wrapping: XY {
+    x: 3,
+    y: -5,
+} (Down) to XY {
+    x: 3,
+    y: -1,
+}
+Wrapping: XY {
+    x: 7,
+    y: -4,
+} (Right) to XY {
+    x: 1,
+    y: -4,
+}
+Wrapping: XY {
+    x: 0,
+    y: -2,
+} (Left) to XY {
+    x: 6,
+    y: -2,
+}
+Wrapping: XY {
+    x: 2,
+    y: -5,
+} (Down) to XY {
+    x: 2,
+    y: -1,
+}
+Wrapping: XY {
+    x: 6,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 6,
+    y: -1,
+} (Right) to XY {
+    x: 1,
+    y: -1,
+}
+Wrapping: XY {
+    x: 0,
+    y: -1,
+} (Left) to XY {
+    x: 6,
+    y: -1,
+}
+Wrapping: XY {
+    x: 2,
+    y: 0,
+} (Up) to XY {
+    x: 2,
+    y: -4,
+}
+Wrapping: XY {
+    x: 4,
+    y: 0,
+} (Up) to XY {
+    x: 4,
+    y: -4,
+}
+Wrapping: XY {
+    x: 5,
+    y: 0,
+} (Up) to XY {
+    x: 5,
+    y: -4,
+}
+Wrapping: XY {
+    x: 6,
+    y: -1,
+} (Right) to XY {
+    x: 1,
+    y: -1,
+}
+Wrapping: XY {
+    x: 5,
+    y: 0,
+} (Up) to XY {
+    x: 5,
+    y: -4,
+}
+Wrapping: XY {
+    x: 0,
+    y: -2,
+} (Left) to XY {
+    x: 6,
+    y: -2,
+}
+Wrapping: XY {
+    x: 6,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 0,
+    y: -3,
+} (Left) to XY {
+    x: 6,
+    y: -3,
+}
+Wrapping: XY {
+    x: 3,
+    y: -5,
+} (Down) to XY {
+    x: 3,
+    y: -1,
+}
+Wrapping: XY {
+    x: 0,
+    y: -1,
+} (Left) to XY {
+    x: 6,
+    y: -1,
+}
+Wrapping: XY {
+    x: 0,
+    y: -2,
+} (Left) to XY {
+    x: 6,
+    y: -2,
+}
+Wrapping: XY {
+    x: 2,
+    y: -5,
+} (Down) to XY {
+    x: 2,
+    y: -1,
+}
+Wrapping: XY {
+    x: 6,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 6,
+    y: -4,
+} (Right) to XY {
+    x: 1,
+    y: -4,
+}
+Wrapping: XY {
+    x: 6,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 0,
+    y: -4,
+} (Left) to XY {
+    x: 6,
+    y: -4,
+}
+Wrapping: XY {
+    x: 0,
+    y: -2,
+} (Left) to XY {
+    x: 6,
+    y: -2,
+}
+Wrapping: XY {
+    x: 2,
+    y: 0,
+} (Up) to XY {
+    x: 2,
+    y: -4,
+}
+Wrapping: XY {
+    x: 4,
+    y: 0,
+} (Up) to XY {
+    x: 4,
+    y: -4,
+}
+Wrapping: XY {
+    x: 5,
+    y: 0,
+} (Up) to XY {
+    x: 5,
+    y: -4,
+}
+Wrapping: XY {
+    x: 6,
+    y: -1,
+} (Right) to XY {
+    x: 1,
+    y: -1,
+}
+Wrapping: XY {
+    x: 5,
+    y: 0,
+} (Up) to XY {
+    x: 5,
+    y: -4,
+}
+Wrapping: XY {
+    x: 3,
+    y: -5,
+} (Down) to XY {
+    x: 3,
+    y: -1,
+}
+Wrapping: XY {
+    x: 6,
+    y: -1,
+} (Right) to XY {
+    x: 1,
+    y: -1,
+}
+Wrapping: XY {
+    x: 0,
+    y: -1,
+} (Left) to XY {
+    x: 6,
+    y: -1,
+}
+Wrapping: XY {
+    x: 6,
+    y: -3,
+} (Right) to XY {
+    x: 1,
+    y: -3,
+}
+Wrapping: XY {
+    x: 2,
+    y: -5,
+} (Down) to XY {
+    x: 2,
+    y: -1,
+}
+Final count: 10
