@@ -1,3 +1,5 @@
-# advent_of_code_2022
+# advent_of_code
 
-Working through Advent of Code 2022 as part of learning Rust.
+Working through Advent of Code as part of learning Rust, and programming practice in general.
+
+Started with 2022, onto 2021...
