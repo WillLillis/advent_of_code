@@ -1,16 +1,16 @@
-use std::fs;
 use std::collections::HashSet;
+use std::fs;
 use std::ops::{Add, AddAssign};
 
 #[derive(Debug, Eq, PartialEq, Hash, Clone, Copy)]
 struct XY {
     x: i32,
-    y: i32
+    y: i32,
 }
 
 impl XY {
     fn new(x: i32, y: i32) -> Self {
-        XY { x, y }    
+        XY { x, y }
     }
 }
 
@@ -34,24 +34,29 @@ impl AddAssign for XY {
 #[derive(Debug)]
 struct Elf {
     curr_pos: XY,
-    plan_move: Option<XY>
+    plan_move: Option<XY>,
 }
 
-const ALL_DIRS: [XY; 8] = [XY{x: 1, y: 0}, XY{x: -1, y: 0}, XY{x: 0, y: 1}, 
-      XY{x: 0, y: -1}, XY{x: 1, y: 1}, XY{x: 1, y: -1}, XY{x: -1, y: 1},
-      XY{x: -1, y: -1}];
+const ALL_DIRS: [XY; 8] = [
+    XY { x: 1, y: 0 },
+    XY { x: -1, y: 0 },
+    XY { x: 0, y: 1 },
+    XY { x: 0, y: -1 },
+    XY { x: 1, y: 1 },
+    XY { x: 1, y: -1 },
+    XY { x: -1, y: 1 },
+    XY { x: -1, y: -1 },
+];
 
-const NORTH_DIRS: [XY; 3] = [XY{x: 0, y: 1}, XY{x: 1, y: 1}, XY{x: -1, y: 1}];
-const SOUTH_DIRS: [XY; 3] = [XY{x: 0, y: -1}, XY{x: 1, y: -1}, XY{x: -1, y: -1}];
-const WEST_DIRS:  [XY; 3] = [XY{x: -1, y: 0}, XY{x: -1, y: 1}, XY{x: -1, y: -1}];
-const EAST_DIRS:  [XY; 3] = [XY{x: 1, y: 0}, XY{x: 1, y: 1}, XY{x: 1, y: -1}];
+const NORTH_DIRS: [XY; 3] = [XY { x: 0, y: 1 }, XY { x: 1, y: 1 }, XY { x: -1, y: 1 }];
+const SOUTH_DIRS: [XY; 3] = [XY { x: 0, y: -1 }, XY { x: 1, y: -1 }, XY { x: -1, y: -1 }];
+const WEST_DIRS: [XY; 3] = [XY { x: -1, y: 0 }, XY { x: -1, y: 1 }, XY { x: -1, y: -1 }];
+const EAST_DIRS: [XY; 3] = [XY { x: 1, y: 0 }, XY { x: 1, y: 1 }, XY { x: 1, y: -1 }];
 
 const CHECK_DIRS: [[XY; 3]; 4] = [NORTH_DIRS, SOUTH_DIRS, WEST_DIRS, EAST_DIRS];
 
-
 fn get_elves(file_name: &str) -> Vec<Elf> {
-    let input = fs::read_to_string(file_name)
-        .expect("Failed to read the input file!");
+    let input = fs::read_to_string(file_name).expect("Failed to read the input file!");
 
     let mut elves: Vec<Elf> = Vec::new();
 
@@ -61,10 +66,12 @@ fn get_elves(file_name: &str) -> Vec<Elf> {
                 '#' => {
                     elves.push(Elf {
                         curr_pos: XY::new(j as i32, 0i32 - (i as i32)),
-                        plan_move: None
+                        plan_move: None,
                     });
-                },
-                '.' => { continue; },
+                }
+                '.' => {
+                    continue;
+                }
                 _ => {
                     panic!("Parsing error!");
                 }
@@ -91,8 +98,15 @@ fn get_next_move(elf: &Elf, curr_elves: &HashSet<XY>, first_check_idx: usize) ->
     }
 
     // next we have to check the directions in order
-    for set in CHECK_DIRS.iter().cycle().skip(first_check_idx).take(CHECK_DIRS.len()) {
-        if set.iter().fold(true, |accum, dir| accum && !curr_elves.contains(&(elf.curr_pos + *dir))) {
+    for set in CHECK_DIRS
+        .iter()
+        .cycle()
+        .skip(first_check_idx)
+        .take(CHECK_DIRS.len())
+    {
+        if set.iter().fold(true, |accum, dir| {
+            accum && !curr_elves.contains(&(elf.curr_pos + *dir))
+        }) {
             return Some(set[0]);
         }
     }
@@ -104,24 +118,24 @@ fn get_next_move(elf: &Elf, curr_elves: &HashSet<XY>, first_check_idx: usize) ->
 // update curr elves hashset here??
 fn do_moves(elves: &mut Vec<Elf>, curr_elves: &mut HashSet<XY>) {
     for elf in elves.iter_mut() {
-       match elf.plan_move {
+        match elf.plan_move {
             Some(pos) => {
                 curr_elves.remove(&elf.curr_pos);
                 elf.curr_pos += pos;
                 curr_elves.insert(elf.curr_pos);
-            },
+            }
             None => {}
-       }
+        }
     }
 }
 
 // iterate through all elves
-    // if they're planning on moving, insert that position into the plan_elves hashset
-    // if there's a collision, add it to the collisions hashset
+// if they're planning on moving, insert that position into the plan_elves hashset
+// if there's a collision, add it to the collisions hashset
 // iterate through all elves
-    // if they're planning on moving and their planned position isn't in the collisions hashset,
-    // it's fine to move them
-    // otherwise don't move them
+// if they're planning on moving and their planned position isn't in the collisions hashset,
+// it's fine to move them
+// otherwise don't move them
 fn set_planned_pos(elves: &mut Vec<Elf>, curr_elves: &HashSet<XY>, first_check_idx: usize) -> bool {
     let mut plan_elves: HashSet<XY> = HashSet::new();
     let mut collisions: HashSet<XY> = HashSet::new();
@@ -135,7 +149,7 @@ fn set_planned_pos(elves: &mut Vec<Elf>, curr_elves: &HashSet<XY>, first_check_i
                 } else {
                     elf.plan_move = Some(dir);
                 }
-            },
+            }
             None => {
                 elf.plan_move = None;
             }
@@ -148,7 +162,7 @@ fn set_planned_pos(elves: &mut Vec<Elf>, curr_elves: &HashSet<XY>, first_check_i
                 if collisions.contains(&(elf.curr_pos + dir)) {
                     elf.plan_move = None;
                 }
-            },
+            }
             None => {}
         }
     }
@@ -181,6 +195,6 @@ fn main() {
         do_moves(&mut elves, &mut curr_elves);
         rounds_completed += 1;
     }
-    
+
     println!("First round where no elf moves: {}", rounds_completed + 1);
 }
