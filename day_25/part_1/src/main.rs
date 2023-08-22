@@ -1,5 +1,6 @@
 use std::fs;
 use std::str::FromStr;
+use std::collections::HashMap;
 
 const LOG_10_5: f32 = 0.69897000433; //5.0_f32.log10();
 
@@ -61,47 +62,72 @@ fn snafu_to_decimal(snafu_num: SNAFU) -> Result<i64, ParseSNAFUError> {
     return Ok(dec_num);
 }
 
-fn to_snafu_recur(num: i64, place: u32) -> (bool, String) {
+fn to_snafu_recur(num: i64, place: u32, cache: &mut HashMap<(i64, u32), (bool, String)>) -> (bool, String) {
+    if let Some((success, tmp_str)) = cache.get(&(num, place)) {
+        return (*success, tmp_str.clone());
+    }
     if place == 0 {
         match num {
-            2 => { return (true, String::from("2")); },
-            1 => { return (true, String::from("1")); },
-            0 => { return (true, String::from("0")); },
-            -1 => { return (true, String::from("-")); },
-            -2 => { return (true, String::from("=")); },
-            _ => { return (false, String::from("")); }
+            2 => {
+                cache.insert((num, place), (true, String::from("2")));
+                return (true, String::from("2")); 
+            },
+            1 => { 
+                cache.insert((num, place), (true, String::from("1")));
+                return (true, String::from("1"));
+            },
+            0 => { 
+                cache.insert((num, place), (true, String::from("0")));
+                return (true, String::from("0")); 
+            },
+            -1 => { 
+                cache.insert((num, place), (true, String::from("-")));
+                return (true, String::from("-"));
+            },
+            -2 => { 
+                cache.insert((num, place), (true, String::from("=")));
+                return (true, String::from("="));
+            },
+            _ => { 
+                cache.insert((num, place), (true, String::from("")));
+                return (false, String::from("")); 
+            }
         }
     }
-    if let (true, p2_str) = to_snafu_recur(num - 2 * 5_u64.pow(place) as i64, place - 1) {
+    if let (true, p2_str) = to_snafu_recur(num - 2 * 5_u64.pow(place) as i64, place - 1, cache) {
         let ret_str = String::from("2") + &p2_str;
+        cache.insert((num, place), (true, ret_str.clone()));
         return (true, ret_str);
-    } else if let (true, p1_str) = to_snafu_recur(num - 5_u64.pow(place) as i64, place - 1) {
+    } else if let (true, p1_str) = to_snafu_recur(num - 5_u64.pow(place) as i64, place - 1, cache) {
         let ret_str = String::from("1") + &p1_str;
+        cache.insert((num, place), (true, ret_str.clone()));
         return (true, ret_str);
-    } else if let (true, p0_str)= to_snafu_recur(num, place - 1) {
+    } else if let (true, p0_str)= to_snafu_recur(num, place - 1, cache) {
         let ret_str = String::from("0") + &p0_str;
+        cache.insert((num, place), (true, ret_str.clone()));
         return (true, ret_str);
-    } else if let (true, m1_str)= to_snafu_recur(num + 5_u64.pow(place) as i64, place - 1) {
+    } else if let (true, m1_str)= to_snafu_recur(num + 5_u64.pow(place) as i64, place - 1, cache) {
         let ret_str = String::from("-") + &m1_str;
+        cache.insert((num, place), (true, ret_str.clone()));
         return (true, ret_str);
-    } else if let (true, m2_str)= to_snafu_recur(num + 2 * 5_u64.pow(place) as i64, place - 1) {
+    } else if let (true, m2_str)= to_snafu_recur(num + 2 * 5_u64.pow(place) as i64, place - 1, cache) {
         let ret_str = String::from("=") + &m2_str;
+        cache.insert((num, place), (true, ret_str.clone()));
         return (true, ret_str);
     } else {
+        cache.insert((num, place), (true, String::from("")));
         return (false, String::from(""));
     }
-    
 }
 
-// TODO: implement this
 fn to_snafu(dec_num: u64) -> Option<SNAFU> {
     let mut snafu_num = SNAFU::new();
-    // what's the alg here???
     // - First find the highest place we need to represent the number at hand
     //      - Change of base formula: Log_5(x) = Log_10(x) / Log_10(5) 
     let highest_place = f32::floor((dec_num as f32).log10() / LOG_10_5) as u32;
 
-    let (success, snafu_str) = to_snafu_recur(dec_num as i64, highest_place + 1);
+    let mut cache: HashMap<(i64, u32), (bool, String)> = HashMap::new();
+    let (success, snafu_str) = to_snafu_recur(dec_num as i64, highest_place + 1, &mut cache);
 
     if success {
         snafu_num.num = String::from(snafu_str.strip_prefix('0').unwrap());
@@ -164,10 +190,10 @@ fn main() {
     
     println!("Decimal sum: {dec_sum}");
 
-    // To slow!
-    //let snafu_num = to_snafu(dec_sum as u64);
+    // To slow! Caching takes up too much memory...
+    //let snafu_num = to_snafu(dec_sum as u64).unwrap();
+    //println!("SNAFU sum: {}", snafu_num.num);
     
     let snafu_num = to_snafu2(dec_sum as u64);
-
     println!("SNAFU sum: {}", snafu_num.num);
 }
