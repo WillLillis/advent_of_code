@@ -153,7 +153,7 @@ fn decode_line(line: &Vec<String>) -> u32 {
  *  #|Size|Seg. common w/ 1|Seg. common w/ 4| Seg. common w/ 7|
  *  0|  6 |        2       |        3       |         3       |
  *  1|  2 |        2       |        2       |         2       |
- *  2|  5 |        1       |        5       |         2       |
+ *  2|  5 |        1       |        2       |         2       |
  *  3|  5 |        2       |        3       |         3       |
  *  4|  4 |        2       |        4       |         2       |
  *  5|  5 |        1       |        3       |         2       |
