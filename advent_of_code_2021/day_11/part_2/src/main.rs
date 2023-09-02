@@ -134,13 +134,14 @@ fn sim_step(octopi: &mut Vec<Vec<Option<u8>>>) -> u32 {
 fn main() {
     let mut octopi = get_octopi("input.txt");
 
-    let n_steps = 100;
-    let mut n_flashes = 0u32;
+    let mut n_steps = 0;
 
-    for _ in 0..n_steps {
-        n_flashes += sim_step(&mut octopi);
-        
+    loop {
+        n_steps += 1;
+        if sim_step(&mut octopi) == (octopi.len() * octopi[0].len()) as u32 {
+            break;
+        }
     }
 
-    println!("{n_flashes} after {n_steps} steps");
+    println!("The octopi synchronized after {n_steps} steps.");
 }
