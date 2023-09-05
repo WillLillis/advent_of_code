@@ -1,10 +1,10 @@
-use std::fs;
 use std::collections::HashMap;
+use std::fs;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 enum CaveSize {
     Small,
-    Large
+    Large,
 }
 
 impl CaveSize {
@@ -23,15 +23,14 @@ impl CaveSize {
 #[derive(Debug)]
 struct CaveInfo {
     name: String,
-    size: CaveSize
+    size: CaveSize,
 }
-
 
 // returns adjacency matrix and a list of info of the caves
 // indexing should be consistent between the two
 fn get_caves(file_name: &str) -> (Vec<Vec<bool>>, Vec<CaveInfo>) {
     let input = fs::read_to_string(file_name).expect("Failed to read the input file");
-    
+
     let mut cave_info: Vec<CaveInfo> = Vec::new();
     let mut name_to_idx: HashMap<String, usize> = HashMap::new();
     let mut cave_idx = 0;
@@ -43,7 +42,10 @@ fn get_caves(file_name: &str) -> (Vec<Vec<bool>>, Vec<CaveInfo>) {
                 name_to_idx.insert(String::from(name), cave_idx);
                 cave_idx += 1;
                 let size = CaveSize::size_from_name(name).unwrap();
-                cave_info.push(CaveInfo { name: String::from(name), size });
+                cave_info.push(CaveInfo {
+                    name: String::from(name),
+                    size,
+                });
             }
         }
     }
@@ -64,7 +66,14 @@ fn get_caves(file_name: &str) -> (Vec<Vec<bool>>, Vec<CaveInfo>) {
     return (adj_matrix, cave_info);
 }
 
-fn valid_visit(curr_cave_idx: usize, next_cave_idx: usize, visited: &Vec<bool>, adj_matrix: &Vec<Vec<bool>>, cave_info: &Vec<CaveInfo) -> bool {
+fn valid_visit(
+    curr_cave_idx: usize,
+    next_cave_idx: usize,
+    visited: &Vec<bool>,
+    adj_matrix: &Vec<Vec<bool>>,
+    cave_info: &Vec<CaveInfo>,
+) -> bool {
+    // must be reachable
     if !adj_matrix[curr_cave_idx][next_cave_idx] {
         return false;
     }
@@ -77,19 +86,45 @@ fn valid_visit(curr_cave_idx: usize, next_cave_idx: usize, visited: &Vec<bool>, 
     }
 }
 
-fn visit_valid_paths(curr_cave_idx: usize, visited: &mut Vec<bool>, adj_matrix: &Vec<Vec<bool>>, cave_info: &Vec<CaveInfo>) -> u32 {
-    
+fn visit_valid_paths(
+    curr_cave_idx: usize,
+    visited: &mut Vec<bool>,
+    adj_matrix: &Vec<Vec<bool>>,
+    cave_info: &Vec<CaveInfo>,
+) -> u32 {
+    if cave_info[curr_cave_idx].name == "end" {
+        return 1;
+    }
+
     let mut n_paths = 0;
 
     for j in 0..adj_matrix.len() {
         if valid_visit(curr_cave_idx, j, visited, adj_matrix, cave_info) {
-            // do the visit stuff, count up the total paths
+            // try the visit...
+            visited[j] = true;
+            n_paths += visit_valid_paths(j, visited, adj_matrix, cave_info);
+            // ...and backtrack
+            visited[j] = false;
         }
     }
 
-    0
+    return n_paths;
 }
 
 fn main() {
-    let (mut adj_matrix, mut cave_info) = get_caves("test_input_1.txt");
+    let (adj_matrix, cave_info) = get_caves("input.txt");
+    let mut visited: Vec<bool> = vec![false; cave_info.len()];
+    let start_idx = cave_info.iter().enumerate().find_map(|(i,info)| {
+        if info.name == "start" {
+            return Some(i);
+        } else {
+            return None;
+        }
+    }).expect("Failed to find the \"start\" cave!");
+
+    visited[start_idx] = true;
+
+    let n_paths = visit_valid_paths(start_idx, &mut visited, &adj_matrix, &cave_info);
+
+    println!("There are {n_paths} valid paths.");
 }
