@@ -1,12 +1,12 @@
 use std::{cmp, fs};
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 enum FoldAxis {
     X,
     Y,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 struct FoldInstr {
     axis: FoldAxis,
     val: usize,
@@ -28,10 +28,12 @@ fn get_manual(file_name: &str) -> (Vec<Vec<bool>>, Vec<FoldInstr>) {
 
     let x_max = nums
         .iter()
-        .fold(usize::MIN, |accum, &(x, _)| cmp::max(accum, x)) + 1;
+        .fold(usize::MIN, |accum, &(x, _)| cmp::max(accum, x))
+        + 1;
     let y_max = nums
         .iter()
-        .fold(usize::MIN, |accum, &(_, y)| cmp::max(accum, y)) + 1;
+        .fold(usize::MIN, |accum, &(_, y)| cmp::max(accum, y))
+        + 1;
 
     let mut dots: Vec<Vec<bool>> = vec![vec![false; x_max]; y_max];
 
@@ -39,7 +41,7 @@ fn get_manual(file_name: &str) -> (Vec<Vec<bool>>, Vec<FoldInstr>) {
         dots[y][x] = true;
     }
 
-    let mut folds: Vec<FoldInstr> = input
+    let folds: Vec<FoldInstr> = input
         .lines()
         .skip_while(|s| s.len() > 0)
         .skip(1)
@@ -60,17 +62,44 @@ fn get_manual(file_name: &str) -> (Vec<Vec<bool>>, Vec<FoldInstr>) {
     return (dots, folds);
 }
 
+fn do_fold(dots: &mut Vec<Vec<bool>>, fold: FoldInstr) {
+    match fold.axis {
+        // fold bottom up to top
+        FoldAxis::Y => {
+            for (i, row) in (fold.val + 1..dots.len()).enumerate() {
+                for j in 0..dots[0].len() {
+                    dots[fold.val - 1 - i][j] |= dots[row][j];
+                }
+            }
+            for _ in fold.val..dots.len() {
+                // TODO: check off by 1 errors here
+                dots.pop();
+            }
+        }
+        // fold right side to left
+        FoldAxis::X => {
+            for row in 0..dots.len() {
+                for (i, col) in (fold.val + 1..dots[row].len()).enumerate() {
+                    dots[row][fold.val - 1 - i] |= dots[row][col];
+                }
+                for _ in fold.val+1..dots[row].len() {
+                    // TODO: check off by 1 errors here too
+                    dots[row].pop();
+                }
+            }
+        }
+    }
+}
+
 fn main() {
-    let (mut dots, folds) = get_manual("test_input.txt");
+    let (mut dots, folds) = get_manual("input.txt");
 
-    for row in dots.iter() {
-        println!("{:?}", row);
+    for &fold in folds.iter() {
+        do_fold(&mut dots, fold);
+        break;
     }
+     
+    let n_dots = dots.iter().flatten().fold(0, |accum, &x| accum + if x {1} else {0});
 
-    println!("Folds:");
-    for fold in folds.iter() {
-        println!("{:?}", fold);
-    }
-
-    // TODO: implement folding functionality, count up the dots
+    println!("Dots: {n_dots}");
 }
