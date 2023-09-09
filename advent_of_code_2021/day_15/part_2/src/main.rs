@@ -62,55 +62,48 @@ fn safest_path_risk(map: &Vec<Vec<u8>>) -> u32 {
         }
     }
 
-    while !pq.is_empty() {
-        match pq.pop() {
-            Some(((i, j), _)) => {
-                let mut neighbors: [Option<(usize, usize)>; 4] = [None; 4];
-                let mut idx = 0usize;
-                // check up
-                if i > 0 {
-                    neighbors[idx] = Some((i - 1, j));
-                    idx += 1;
-                }
-                // check down
-                if i < map_len - 1 {
-                    neighbors[idx] = Some((i + 1, j));
-                    idx += 1;
-                }
-                // check left
-                if j > 0 {
-                    neighbors[idx] = Some((i, j - 1));
-                    idx += 1;
-                }
-                // check right
-                if j < map_width - 1 {
-                    neighbors[idx] = Some((i, j + 1));
-                }
-                for &neigh in neighbors.iter() {
-                    // could just go off of idx, but it shouldn't make
-                    // much of a difference
-                    match neigh {
-                        Some((a, b)) => {
-                            let alt_dist = dist[i][j]
-                                + if dist[i][j] == u32::MAX {
-                                    0
-                                } else {
-                                    map[a][b] as u32
-                                };
-                            if alt_dist < dist[a][b] {
-                                dist[a][b] = alt_dist;
-                                prev[a][b] = Some((i, j));
-                                pq.push_decrease((a, b), alt_dist);
-                            }
-                        }
-                        None => {
-                            break;
-                        }
+    while let Some(((i,j), _)) = pq.pop() {
+        let mut neighbors: [Option<(usize, usize)>; 4] = [None; 4];
+        let mut idx = 0usize;
+        // check up
+        if i > 0 {
+            neighbors[idx] = Some((i - 1, j));
+            idx += 1;
+        }
+        // check down
+        if i < map_len - 1 {
+            neighbors[idx] = Some((i + 1, j));
+            idx += 1;
+        }
+        // check left
+        if j > 0 {
+            neighbors[idx] = Some((i, j - 1));
+            idx += 1;
+        }
+        // check right
+        if j < map_width - 1 {
+            neighbors[idx] = Some((i, j + 1));
+        }
+        for &neigh in neighbors.iter() {
+            // could just go off of idx, but it shouldn't make
+            // much of a difference
+            match neigh {
+                Some((a, b)) => {
+                    let alt_dist = dist[i][j]
+                        + if dist[i][j] == u32::MAX {
+                            0
+                        } else {
+                            map[a][b] as u32
+                        };
+                    if alt_dist < dist[a][b] {
+                        dist[a][b] = alt_dist;
+                        prev[a][b] = Some((i, j));
+                        pq.push_decrease((a, b), alt_dist);
                     }
                 }
-            }
-            None => {
-                unreachable!();
+                None => {
+                    break;
+                }
             }
         }
     }
@@ -120,10 +113,6 @@ fn safest_path_risk(map: &Vec<Vec<u8>>) -> u32 {
 
 fn main() {
     let map = get_map("input.txt");
-
-    for row in map.iter() {
-        println!("{:?}", row);
-    }
 
     let lowest_risk = safest_path_risk(&map);
 
