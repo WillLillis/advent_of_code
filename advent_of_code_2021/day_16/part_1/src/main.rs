@@ -108,18 +108,11 @@ fn parse_header(transmission: &mut VecDeque<bool>) -> Option<PacketHeader> {
         }
     };
 
-    return Some(match (id_2, id_1, id_0) {
-        (true, false, false) => PacketHeader {
-            version,
-            type_id: 4u8,
-        },
-        _ => {
-            let type_id: u8 = (if id_2 { 4 } else { 0 })
-                + (if id_1 { 2 } else { 0 })
-                + (if id_0 { 1 } else { 0 });
-            PacketHeader { version, type_id }
-        }
-    });
+    
+    let type_id: u8 = (if id_2 { 4 } else { 0 })
+        + (if id_1 { 2 } else { 0 })
+        + (if id_0 { 1 } else { 0 });
+     return Some(PacketHeader { version, type_id });
 }
 
 fn parse_body_literal(transmission: &mut VecDeque<bool>) -> Option<PacketBody> {
