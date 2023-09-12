@@ -1,4 +1,4 @@
-use std::{fs, collections::VecDeque};
+use std::{collections::VecDeque, fs, mem::swap};
 
 #[derive(Debug)]
 struct BITSTransmission {
@@ -20,11 +20,10 @@ struct PacketHeader {
 #[derive(Debug)]
 enum PacketBody {
     Literal(u128),
-    Operator(Vec<Box<PacketBody>>),
+    Operator(Vec<Packet>),
 }
 
 fn hex_to_bin(hex_in: char) -> Option<[bool; 4]> {
-    println!("{hex_in}->{}", hex_in.to_ascii_uppercase());
     match hex_in.to_ascii_uppercase() {
         '0' => Some([false, false, false, false]),
         '1' => Some([false, false, false, true]),
@@ -42,7 +41,7 @@ fn hex_to_bin(hex_in: char) -> Option<[bool; 4]> {
         'D' => Some([true, true, false, true]),
         'E' => Some([true, true, true, false]),
         'F' => Some([true, true, true, true]),
-        _ => None
+        _ => None,
     }
 }
 
@@ -57,7 +56,7 @@ fn get_transmission(file_name: &str) -> VecDeque<bool> {
                 for val in bin_vals {
                     binary.push_back(val);
                 }
-            }, 
+            }
             None => {
                 panic!("Error parsing the file! Invalid character encountered");
             }
@@ -67,27 +66,63 @@ fn get_transmission(file_name: &str) -> VecDeque<bool> {
     return binary;
 }
 
-fn parse_header(transmission: &mut VecDeque<bool>) -> PacketHeader {
-    let ver_2 = transmission.pop_front().expect("Unexpected packet end!");
-    let ver_1 = transmission.pop_front().expect("Unexpected packet end!");
-    let ver_0 = transmission.pop_front().expect("Unexpected packet end!");
-
-    let version: u8 = (if ver_2 {4} else {0}) + (if ver_1 {2} else {0}) + (if ver_0 {1} else {0});
-
-    let id_2 = transmission.pop_front().expect("Unexpected packet end!");
-    let id_1 = transmission.pop_front().expect("Unexpected packet end!");
-    let id_0 = transmission.pop_front().expect("Unexpected packet end!");
-
-    return match (id_2, id_1, id_0) {
-        (true, false, false) => PacketHeader { version, type_id: 4u8 },
-        _ => {
-            let type_id: u8 = (if id_2 {4} else {0}) + (if id_1 {2} else {0}) + (if id_0 {1} else {0});
-            PacketHeader { version, type_id }
+fn parse_header(transmission: &mut VecDeque<bool>) -> Option<PacketHeader> {
+    let ver_2 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
         }
     };
+    let ver_1 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
+        }
+    };
+    let ver_0 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
+        }
+    };
+
+    let version: u8 =
+        (if ver_2 { 4 } else { 0 }) + (if ver_1 { 2 } else { 0 }) + (if ver_0 { 1 } else { 0 });
+
+    let id_2 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
+        }
+    };
+    let id_1 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
+        }
+    };
+    let id_0 = match transmission.pop_front() {
+        Some(bit) => bit,
+        None => {
+            return None;
+        }
+    };
+
+    return Some(match (id_2, id_1, id_0) {
+        (true, false, false) => PacketHeader {
+            version,
+            type_id: 4u8,
+        },
+        _ => {
+            let type_id: u8 = (if id_2 { 4 } else { 0 })
+                + (if id_1 { 2 } else { 0 })
+                + (if id_0 { 1 } else { 0 });
+            PacketHeader { version, type_id }
+        }
+    });
 }
 
-fn parse_body_literal(transmission: &mut VecDeque<bool>) -> PacketBody {
+fn parse_body_literal(transmission: &mut VecDeque<bool>) -> Option<PacketBody> {
     let mut literal_val: Vec<bool> = Vec::new();
 
     loop {
@@ -103,37 +138,149 @@ fn parse_body_literal(transmission: &mut VecDeque<bool>) -> PacketBody {
     let mut coeff = 1;
     let mut accum = 0;
     for &val in literal_val.iter().rev() {
-        accum += if val {coeff} else {0};
+        accum += if val { coeff } else { 0 };
         coeff *= 2;
     }
 
-    return PacketBody::Literal(accum);
+    return Some(PacketBody::Literal(accum));
 }
 
-fn parse_body_operator(transmission: &mut VecDeque<bool>) -> PacketBody {
-    todo!();
+fn parse_body_operator(transmission: &mut VecDeque<bool>) -> Option<PacketBody> {
+    let len_type_id = transmission.pop_front().expect("Unexpected packet end!");
+
+    if len_type_id {
+        let mut literal_val: Vec<bool> = Vec::new();
+        for _ in 0..11 {
+            match transmission.pop_front() {
+                Some(val) => {
+                    literal_val.push(val);
+                }
+                None => {
+                    return None;
+                }
+            }
+        }
+
+        let mut n_packets = 0;
+        {
+            let mut coeff = 1;
+            for &val in literal_val.iter().rev() {
+                n_packets += if val { coeff } else { 0 };
+                coeff *= 2;
+            }
+        }
+
+        // check for 0 necessary?
+        if n_packets == 0 {
+            return None;
+        }
+        let mut sub_packets: Vec<Packet> = Vec::new();
+        sub_packets.reserve(n_packets);
+
+        for _ in 0..n_packets {
+            match parse_packet(transmission) {
+                Some(packet) => {
+                    sub_packets.push(packet);
+                }
+                None => {}
+            }
+        }
+
+        return Some(PacketBody::Operator(sub_packets));
+    } else {
+        let mut literal_val: Vec<bool> = Vec::new();
+        for _ in 0..15 {
+            match transmission.pop_front() {
+                Some(val) => {
+                    literal_val.push(val);
+                }
+                None => {
+                    return None;
+                }
+            }
+        }
+
+        let mut sub_packets_len = 0;
+        {
+            let mut coeff = 1;
+            for &val in literal_val.iter().rev() {
+                sub_packets_len += if val { coeff } else { 0 };
+                coeff *= 2;
+            }
+        }
+
+        if sub_packets_len == 0 {
+            return None;
+        }
+
+        let mut sub_transmission = transmission.split_off(sub_packets_len);
+        swap(&mut sub_transmission, transmission);
+
+        let mut sub_packets: Vec<Packet> = Vec::new();
+        while !sub_transmission.is_empty() {
+            match parse_packet(&mut sub_transmission) {
+                Some(packet) => {
+                    sub_packets.push(packet);
+                }
+                None => {}
+            }
+        }
+
+        return Some(PacketBody::Operator(sub_packets));
+    }
 }
 
-fn parse_packet(transmission: &mut VecDeque<bool>) -> Packet {
-    let header = parse_header(transmission);
-    
+fn parse_packet(transmission: &mut VecDeque<bool>) -> Option<Packet> {
+    let header = match parse_header(transmission) {
+        Some(contents) => contents,
+        None => {
+            return None;
+        }
+    };
+
     let body = if header.type_id == 4 {
         parse_body_literal(transmission)
     } else {
         parse_body_operator(transmission)
     };
 
-    return Packet { header, body };
+    return match body {
+        Some(contents) => Some(Packet {
+            header,
+            body: contents,
+        }),
+        None => None,
+    };
 }
 
-fn parse_transmission(transmission: &mut VecDeque<bool>) -> BITSTransmission {
-    return BITSTransmission { first_packet: parse_packet(transmission) };
+fn parse_transmission(transmission: &mut VecDeque<bool>) -> Option<BITSTransmission> {
+    return match parse_packet(transmission) {
+        Some(first_packet) => Some(BITSTransmission { first_packet }),
+        None => None,
+    };
+}
+
+fn get_version_sum(transmission: &Packet) -> u32 {
+    let mut version_accum = 0u32;
+    version_accum += transmission.header.version as u32;
+    match &transmission.body {
+        PacketBody::Literal(_) => {}
+        PacketBody::Operator(sub_packets) => {
+            for packet in sub_packets.iter() {
+                version_accum += get_version_sum(packet);
+            }
+        }
+    }
+
+    return version_accum;
 }
 
 fn main() {
-    let mut transmission = get_transmission("test_input_0.txt");
+    let mut transmission = get_transmission("input.txt");
 
-    let parsed = parse_transmission(&mut transmission);
+    let parsed = parse_transmission(&mut transmission).unwrap();
+    let version_accum = get_version_sum(&parsed.first_packet);
 
-    println!("{:#?}", parsed);
+    //println!("{:#?}", parsed);
+    println!("{version_accum}");
 }
