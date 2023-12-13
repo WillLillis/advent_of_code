@@ -168,7 +168,7 @@ fn get_map(input: &str) -> TileMap {
     map
 }
 
-fn furthest_dist(map: &TileMap) -> HashSet<(usize, usize)> {
+fn get_loop(map: &TileMap) -> HashSet<(usize, usize)> {
     let start = find_start(&map).unwrap();
     // track position, current step count, and direction to move in
     let mut to_check: Vec<SearchState> = Vec::new();
@@ -224,12 +224,84 @@ fn furthest_dist(map: &TileMap) -> HashSet<(usize, usize)> {
     tile_loop
 }
 
+// Scanline algorithm, suggestion/ help from https://www.reddit.com/r/adventofcode/comments/18f1sgh/comment/kcripvi/?utm_source=share&utm_medium=web2x&context=3
+fn count_trapped(row: &Vec<Tile>, main_loop: &HashSet<(usize, usize)>, row_idx: usize) -> usize {
+    let mut trapped = 0usize;
+    let mut in_region = false;
+    let mut last_corner: Option<Tile> = None;
+
+    for (col_idx, tile) in row.iter().enumerate() {
+        // check for pipes not connected to the main loop
+        if !main_loop.contains(&(row_idx, col_idx)) {
+            if in_region {
+                trapped += 1;
+            }
+            continue;
+        }
+        match (tile, in_region) {
+            (Tile::Ground, true) => {
+                trapped += 1;
+            }
+            (Tile::Ground, false) | (Tile::PipeEW, _) => {}
+            (Tile::PipeNS, _) => {
+                in_region = !in_region;
+            }
+            // L
+            (Tile::PipeNE, _) => {
+                last_corner = Some(Tile::PipeNE);
+            }
+            // F
+            (Tile::PipeSE, _) => {
+                last_corner = Some(Tile::PipeSE);
+            }
+            // J
+            (Tile::PipeNW, _) => {
+                // forms a U
+                if let Some(Tile::PipeNE) = last_corner {
+                    // do nothing
+                }
+                // forms an S
+                else if let Some(Tile::PipeSE) = last_corner {
+                    in_region = !in_region;
+                }
+                last_corner = None;
+            }
+            // 7
+            (Tile::PipeSW, _) => {
+                // forms a U
+                if let Some(Tile::PipeSE) = last_corner {
+                    // do nothing
+                }
+                // forms an S
+                else if let Some(Tile::PipeNE) = last_corner {
+                    in_region = !in_region;
+                }
+                last_corner = None;
+            }
+            (Tile::Start, _) => {
+                // switching here works for main input but breaks test cases...
+                in_region = !in_region;
+            }
+        }
+    }
+
+    trapped
+}
+
 fn main() {
     let input =
         std::fs::read_to_string("../test_input_2_1").expect("Failed to read the input file");
     let map = get_map(&input);
+    let main_loop = get_loop(&map);
 
-    let tile_loop = furthest_dist(&map);
+    //let test_input = ".|.|L---J..F---7|.|L7.F-J...|..|";
+    //let map = get_map(&test_input);
 
-    println!("{:?}", tile_loop);
+    let num_trapped: usize = map
+        .iter()
+        .enumerate()
+        .map(|(i, row)| count_trapped(row, &main_loop, i))
+        .sum();
+
+    println!("{:?}", num_trapped);
 }
