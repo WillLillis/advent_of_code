@@ -125,8 +125,7 @@ dependencies = [
 [[package]]
 name = "memoize"
 version = "0.4.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7500eb334b820fcb9d8bfb9061d75fe910ed6302f690b24f3abaa133a581479c"
+source = "git+https://github.com/dermesser/memoize#cb5878e660dedfd18835329a5823daafed3203e2"
 dependencies = [
  "lazy_static",
  "lru",
@@ -136,8 +135,7 @@ dependencies = [
 [[package]]
 name = "memoize-inner"
 version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8bfde264c318ec8c2de5c39e0ba3910fac8d1065e3b947b183ebd884b799719b"
+source = "git+https://github.com/dermesser/memoize#cb5878e660dedfd18835329a5823daafed3203e2"
 dependencies = [
  "lazy_static",
  "proc-macro2",
