@@ -42,7 +42,8 @@ fn get_records(input: &str) -> Vec<SpringRecord> {
             })
             .collect::<Vec<SpringCondition>>();
         springs.push(SpringCondition::Unknown);
-        let springs = springs.repeat(5);
+        let mut springs = springs.repeat(5);
+        springs.pop();
         let contig_sizes: Vec<u32> = pieces[1]
             .split(',')
             .filter_map(|x| x.parse::<u32>().ok())
@@ -286,7 +287,7 @@ fn recur_memo2(springs: Vec<SpringCondition>, id: usize) -> usize {
 }
 
 fn main() {
-    let input = std::fs::read_to_string("../test_input").expect("Failed to read the input file");
+    let input = std::fs::read_to_string("../input").expect("Failed to read the input file");
     //let mut records = get_records(&input);
     let records = get_records(&input);
     unsafe {
@@ -305,7 +306,7 @@ fn main() {
             //.map(|(i, mut r)| {
             //let count = recur(&mut r);
             //let count = recur_memo2(r.springs.clone(), r.id);
-            println!("{:?}", r.alt_springs);
+            //println!("{:?}", r.alt_springs);
             let count = recursion_again(r.alt_springs.clone(), r.alt_contig_sizes.clone());
             println!("{i}: {count}");
             count
